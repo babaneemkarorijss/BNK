@@ -1,24 +1,41 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-export const metadata: Metadata = { title: 'Leelas', description: 'Miracles of Neem Karori Baba' };
-const stories = [{ slug: 'birth', title: 'Birth & Childhood' }, { slug: 'train', title: 'Train Miracle' }, { slug: 'feeding', title: 'Feeding the 500' }, { slug: 'tiger', title: 'Tiger & the Sadhu' }, { slug: 'mahasamadhi', title: 'Mahasamadhi' }];
+import LeelaCard from '@/components/LeelaCard';
+
+export const metadata: Metadata = {
+  title: 'Divine Leelas of Babaji',
+  description: 'Explore the miraculous leelas of Shri Neem Karori Baba.',
+};
+
+const leelas = [
+  { slug: 'removal-of-doubt', title: 'Removal of Doubt', subtitle: 'Baba summons a skeptic' },
+  { slug: 'dumb-child-speaks', title: 'The Dumb Child Speaks', subtitle: 'A mute boy&rsquo;s first word' },
+  { slug: 'bullets-absorbed', title: 'Bullets Absorbed by the Blanket', subtitle: 'Saving the surgeon&rsquo;s son' },
+  { slug: 'change-the-weather', title: 'I Shall Change the Weather', subtitle: 'The June wedding miracle' },
+  { slug: 'gift-of-life', title: 'Gift of Life to a Widow&rsquo;s Son', subtitle: 'Snakebite resurrection' },
+  { slug: 'birth-of-badrivishal', title: 'Birth of Badrivishal', subtitle: 'A dead newborn resurrected' },
+  { slug: 'american-skeptic', title: 'The American Skeptic', subtitle: 'The rolled apple' },
+  { slug: 'baba-drove-the-car', title: 'When Baba Drove the Car', subtitle: 'Driver asleep, Baba at the wheel' },
+  { slug: 'old-laborer-khantia', title: 'Old Laborer Khantia', subtitle: 'Promise of salvation' },
+  { slug: 'mahasamadhi', title: 'The Mahasamadhi Lila', subtitle: 'Final departure &amp; the storm' },
+];
+
 export default function StoriesPage() {
   return (
-    <div className="max-w-6xl mx-auto py-16 px-4">
-      <h1 className="text-4xl font-serif text-sacred-red mb-12 text-center">Leelas of Babaji</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {stories.map(s => (
-          <Link key={s.slug} href={`/stories/${s.slug}`} className="group">
-            <div className="divine-card h-full flex flex-col items-center text-center group-hover:bg-divine-saffron/5">
-              <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden">
-                <Image src={`/assets/images/story-${s.slug}.webp`} alt={s.title} fill className="object-cover group-hover:scale-105 transition-transform" sizes="160px" />
-              </div>
-              <h2 className="text-2xl font-serif">{s.title}</h2>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+    <main>
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <Image src="/assets/images/leelas-hero.webp" alt="Divine Leelas" fill priority className="object-cover" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight-devotion/60 to-midnight-devotion/40" />
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">Divine Leelas of Babaji</h1>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto">Miraculous plays that reveal the boundless love and power of Shri Neem Karori Baba.</p>
+        </div>
+      </section>
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8">
+          {leelas.map(leela => <LeelaCard key={leela.slug} {...leela} />)}
+        </div>
+      </section>
+    </main>
   );
 }

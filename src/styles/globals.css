@@ -20,15 +20,13 @@ body { @apply font-sans text-gray-900 bg-parchment antialiased; }
 h1,h2,h3,h4 { @apply font-serif; }
 
 .divine-card {
-  @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-divine-saffron/20
-         hover:shadow-2xl hover:border-divine-saffron/40 transition-all duration-300;
+  @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-divine-saffron/20 hover:shadow-2xl hover:border-divine-saffron/40 transition-all duration-300;
 }
 .darshan-btn {
-  @apply bg-divine-saffron text-white font-semibold px-8 py-3 rounded-full
-         shadow-lg hover:bg-sacred-red hover:scale-105 transition-transform;
+  @apply bg-divine-saffron text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-sacred-red hover:scale-105 transition-transform;
 }
 
-/* -------- HAMBURGER (exact Uiverse) -------- */
+/* HAMBURGER */
 #menu-checkbox { display: none; }
 .toggle { position: relative; width: 40px; height: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition-duration: .3s; }
 .bars { width: 100%; height: 4px; background-color: #1B0A2A; border-radius: 5px; transition-duration: .3s; }
@@ -36,21 +34,8 @@ h1,h2,h3,h4 { @apply font-serif; }
 #menu-checkbox:checked + .toggle #bar1 { transform: translateY(28px) rotate(-60deg); transition-duration: .3s; transform-origin: left; z-index: 1; }
 #menu-checkbox:checked + .toggle { transform: rotate(-90deg); }
 
-/* -------- LEAF BUTTONS (exact) -------- */
-.leaf-btn {
-  position: relative;
-  padding: 13px 35px;
-  background: #f5ddb7;
-  font-size: 17px;
-  font-weight: 900;
-  color: #181818;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px #18181869, inset 2px 2px 10px #ffffffb0;
-  transition: all .3s ease-in-out;
-  display: inline-block;
-  text-align: center;
-}
+/* LEAF BUTTONS */
+.leaf-btn { position: relative; padding: 13px 35px; background: #f5ddb7; font-size: 17px; font-weight: 900; color: #181818; border: none; border-radius: 8px; box-shadow: 2px 2px 5px #18181869, inset 2px 2px 10px #ffffffb0; transition: all .3s ease-in-out; display: inline-block; text-align: center; }
 .leaf-icon { position: absolute; top: 10%; left: 50%; transform: translate(-50%,0); width: 0px; height: auto; transition: all .5s ease-in-out; z-index: -1; }
 .leaf-btn:hover { padding: 13px 25px; border-radius: 8px 8px 24px 24px; }
 .leaf-btn:hover .leaf-icon-1 { top: -250%; width: 50px; animation: inIcon1 1s ease .45s forwards; }
@@ -65,49 +50,17 @@ h1,h2,h3,h4 { @apply font-serif; }
 @keyframes inIcon5 { 0%{transform-origin:0 100%;transform:translate(-50%,0) rotate(0);} 35%{transform:rotate(-3deg);} 100%{transform:rotate(0);} }
 .fil-leaf-1{fill:#7B9B3A} .fil-leaf-2{fill:#556729} .fil-leaf-3{fill:#556729} .fil-leaf-4{fill:#3C4819} .fil-leaf-5{fill:#3C4819}
 
-/* -------- SOCIAL CARDS (exact Uiverse) -------- */
+/* SOCIAL CARDS */
 .main { display: flex; flex-direction: column; gap: 0.5em; }
 .up { display: flex; flex-direction: row; gap: 0.5em; }
 .down { display: flex; flex-direction: row; gap: 0.5em; }
-.card1 {
-  width: 90px; height: 90px;
-  outline: none; border: none;
-  background: white;
-  border-radius: 90px 5px 5px 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: .2s ease-in-out;
-  cursor: pointer;
-}
+.card1 { width: 90px; height: 90px; outline: none; border: none; background: white; border-radius: 90px 5px 5px 5px; box-shadow: rgba(50,50,93,0.25) 0px 2px 5px -1px, rgba(0,0,0,0.3) 0px 1px 3px -1px; transition: .2s ease-in-out; cursor: pointer; }
 .instagram { margin-top: 1.5em; margin-left: 1.2em; fill: #cc39a4; }
-.card2 {
-  width: 90px; height: 90px;
-  outline: none; border: none;
-  background: white;
-  border-radius: 5px 90px 5px 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: .2s ease-in-out;
-  cursor: pointer;
-}
+.card2 { width: 90px; height: 90px; outline: none; border: none; background: white; border-radius: 5px 90px 5px 5px; box-shadow: rgba(50,50,93,0.25) 0px 2px 5px -1px, rgba(0,0,0,0.3) 0px 1px 3px -1px; transition: .2s ease-in-out; cursor: pointer; }
 .twitter { margin-top: 1.5em; margin-left: -.9em; fill: #03A9F4; }
-.card3 {
-  width: 90px; height: 90px;
-  outline: none; border: none;
-  background: white;
-  border-radius: 5px 5px 5px 90px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: .2s ease-in-out;
-  cursor: pointer;
-}
+.card3 { width: 90px; height: 90px; outline: none; border: none; background: white; border-radius: 5px 5px 5px 90px; box-shadow: rgba(50,50,93,0.25) 0px 2px 5px -1px, rgba(0,0,0,0.3) 0px 1px 3px -1px; transition: .2s ease-in-out; cursor: pointer; }
 .github { margin-top: -.6em; margin-left: 1.2em; }
-.card4 {
-  width: 90px; height: 90px;
-  outline: none; border: none;
-  background: white;
-  border-radius: 5px 5px 90px 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: .2s ease-in-out;
-  cursor: pointer;
-}
+.card4 { width: 90px; height: 90px; outline: none; border: none; background: white; border-radius: 5px 5px 90px 5px; box-shadow: rgba(50,50,93,0.25) 0px 2px 5px -1px, rgba(0,0,0,0.3) 0px 1px 3px -1px; transition: .2s ease-in-out; cursor: pointer; }
 .discord { margin-top: -.9em; margin-left: -1.2em; fill: #8c9eff; }
 .card1:hover { scale: 1.1; background-color: #cc39a4; }
 .card1:hover .instagram { fill: white; }
@@ -118,158 +71,20 @@ h1,h2,h3,h4 { @apply font-serif; }
 .card4:hover { scale: 1.1; background-color: #8c9eff; }
 .card4:hover .discord { fill: white; }
 
-/* -------- 3D ZODIAC HOVER -------- */
+/* 3D ZODIAC */
 .zodiac-container { perspective: 1000px; }
-.zodiac-card {
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-.zodiac-card:hover {
-  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-  box-shadow: 0 25px 40px rgba(0,0,0,0.2);
-}
+.zodiac-card { transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; cursor: pointer; }
+.zodiac-card:hover { transform: rotateY(15deg) rotateX(10deg) scale(1.05); box-shadow: 0 25px 40px rgba(0,0,0,0.2); }
 .zodiac-img { backface-visibility: hidden; }
 
-/* -------- UIVERSE LEELA CARDS (exact copy) -------- */
-/* (same as before, omitted for brevity but present in script) */
-
-/* -------- ORANGE GLIMPSES CARD (Uiverse by MuhammadHasann, adapted) -------- */
-.glimpses-card {
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(240, 15%, 9%);
-  --paragraph: hsl(0, 0%, 83%);
-  --line: hsl(240, 9%, 17%);
-  --primary: hsl(30, 100%, 50%); /* orange */
-
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  width: 19rem;
-  background-color: hsla(240, 15%, 9%, 1);
-  background-image: radial-gradient(
-      at 88% 40%,
-      hsla(240, 15%, 9%, 1) 0px,
-      transparent 85%
-    ),
-    radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
-    radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
-    radial-gradient(at 0% 64%, hsla(30, 100%, 50%, 1) 0px, transparent 85%),
-    radial-gradient(at 41% 94%, hsla(30, 100%, 70%, 1) 0px, transparent 85%),
-    radial-gradient(at 100% 99%, hsla(30, 100%, 60%, 1) 0px, transparent 85%);
-  border-radius: 1rem;
-  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
-}
-
-.glimpses-card .glimpses-card__border {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: -10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  background-image: linear-gradient(
-    0deg,
-    hsl(0, 0%, 100%) -50%,
-    hsl(0, 0%, 40%) 100%
-  );
-  border-radius: 1rem;
-}
-
-.glimpses-card .glimpses-card__border::before {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  z-index: 200;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%), rotate(0deg);
-  transform-origin: left;
-  width: 200%;
-  height: 10rem;
-  background-image: linear-gradient(
-    0deg,
-    hsla(0, 0%, 100%, 0) 0%,
-    hsl(30, 95%, 60%) 40%,
-    hsl(30, 95%, 60%) 60%,
-    hsla(0, 0%, 40%, 0) 100%
-  );
-  animation: rotate 8s linear infinite;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-.glimpses-card .glimpses-card_title__container .glimpses-card_title {
-  font-size: 1rem;
-  color: var(--white);
-}
-
-.glimpses-card .glimpses-card_title__container .glimpses-card_paragraph {
-  margin-top: 0.25rem;
-  width: 65%;
-  font-size: 0.5rem;
-  color: var(--paragraph);
-}
-
-.glimpses-card .glimpses-line {
-  width: 100%;
-  height: 0.1rem;
-  background-color: var(--line);
-  border: none;
-}
-
-.glimpses-card .glimpses-card__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.glimpses-card .glimpses-card__list .glimpses-card__list_item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-check {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--primary);
-  border-radius: 50%;
-}
-
-.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-check .glimpses-check_svg {
-  width: 0.75rem;
-  height: 0.75rem;
-  fill: var(--black);
-}
-
-.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-list_text {
-  font-size: 0.75rem;
-  color: var(--white);
-}
-
-.glimpses-card .glimpses-button {
-  cursor: pointer;
-  padding: 0.5rem;
-  width: 100%;
-  background-image: linear-gradient(
-    0deg,
-    hsl(30, 100%, 50%) 0%,
-    hsl(30, 100%, 70%) 100%
-  );
-  font-size: 0.75rem;
-  color: var(--white);
-  border: 0;
-  border-radius: 9999px;
-  box-shadow: inset 0 -2px 25px -4px var(--white);
-}
+/* LEELA CARDS (orange Uiverse) */
+.leela-card-container { width: 260px; background: linear-gradient(to top right, #f59b4a, #f87c2f 40%, #faaa78 65%, #ff934c 100%); padding: 4px; border-radius: 32px; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.leela-card-container:hover { transform: translateY(-5px); box-shadow: 0 20px 30px rgba(245,155,74,0.3); }
+.leela-title-card { display: flex; align-items: center; padding: 16px 18px; justify-content: space-between; color: #fff; }
+.leela-title-card p { font-size: 14px; font-weight: 600; font-style: italic; text-shadow: 2px 2px 6px #ee7429; }
+.leela-card-content { width: 100%; height: 100%; background-color: #161a20; border-radius: 30px; color: #838383; font-size: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.leela-card-title { font-weight: 600; font-size: 16px; color: #fff; }
+.leela-card-subtitle { color: #a0a0a0; font-size: 12px; }
+.leela-card-btn { background: linear-gradient(4deg, #f59b4a, #f87c2f 40%, #faaa78 65%, #ff934c 100%); padding: 10px; border: none; width: 100%; border-radius: 8px; color: white; font-size: 14px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s ease-in-out; cursor: pointer; box-shadow: inset 0 2px 4px rgba(255,255,255,0.6); }
+.leela-card-btn:hover { color: #ffffff; text-shadow: 0 0 8px #fff; transform: scale(1.03); }
+.leela-card-btn:active { transform: scale(1); }

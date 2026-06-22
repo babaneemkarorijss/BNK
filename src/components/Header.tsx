@@ -46,11 +46,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled
-        ? 'bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark shadow-xl'
-        : 'bg-transparent'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark shadow-xl' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className="w-12">
           <input type="checkbox" id="menu-checkbox" checked={open} onChange={e => setOpen(e.target.checked)} />
@@ -60,28 +56,16 @@ export default function Header() {
             <div id="bar3" className="bars" style={{ backgroundColor: scrolled ? '#1B0A2A' : '#FDF7E7' }}></div>
           </label>
         </div>
-
         <Link href="/" className="flex-1 text-center">
-          <span className={`font-serif text-2xl md:text-3xl font-bold tracking-wider ${
-            scrolled ? 'text-midnight-devotion' : 'text-white drop-shadow-lg'
-          }`}>
-            Shri Neem Karori Baba
-          </span>
+          <span className={`font-serif text-2xl md:text-3xl font-bold tracking-wider ${scrolled ? 'text-midnight-devotion' : 'text-white drop-shadow-lg'}`}>Shri Neem Karori Baba</span>
         </Link>
-
         <div className="w-12" />
       </div>
-
       {open && (
         <div className="absolute top-full left-0 right-0 bg-gradient-to-b from-golden-dark/95 to-divine-saffron/95 backdrop-blur-md border-t border-white/20 shadow-2xl">
           <nav className="max-w-3xl mx-auto py-6 px-4 flex flex-wrap justify-center gap-4">
             {navItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="leaf-btn"
-                onClick={() => setOpen(false)}
-              >
+              <Link key={item.href} href={item.href} className="leaf-btn" onClick={() => setOpen(false)}>
                 {item.label}
                 <LeafSVGs />
               </Link>

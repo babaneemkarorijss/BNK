@@ -22,6 +22,8 @@ const config: Config = {
         'spin-slow': 'spin-slow 30s linear infinite',
         'pulse-babaji': 'pulse-babaji 6s ease-in-out infinite',
         'rotate': 'rotate 8s linear infinite',
+        'fade-in': 'fadeIn 1s ease-out',
+        'slide-up': 'slideUp 0.6s ease-out',
       },
       keyframes: {
         float: {
@@ -36,9 +38,9 @@ const config: Config = {
           '0%, 100%': { transform: 'scale(1)', opacity: '0.9' },
           '50%': { transform: 'scale(1.05)', opacity: '1' },
         },
-        rotate: {
-          to: { transform: 'rotate(360deg)' },
-        },
+        rotate: { to: { transform: 'rotate(360deg)' } },
+        fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+        slideUp: { from: { transform: 'translateY(20px)', opacity: '0' }, to: { transform: 'translateY(0)', opacity: '1' } },
       },
     },
   },
