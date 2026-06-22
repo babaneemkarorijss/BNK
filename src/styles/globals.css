@@ -19,7 +19,6 @@
 body { @apply font-sans text-gray-900 bg-parchment antialiased; }
 h1,h2,h3,h4 { @apply font-serif; }
 
-/* Divine card for pages */
 .divine-card {
   @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-divine-saffron/20
          hover:shadow-2xl hover:border-divine-saffron/40 transition-all duration-300;
@@ -29,37 +28,15 @@ h1,h2,h3,h4 { @apply font-serif; }
          shadow-lg hover:bg-sacred-red hover:scale-105 transition-transform;
 }
 
-/* -------- HAMBURGER (Uiverse exact) -------- */
+/* -------- HAMBURGER (exact Uiverse) -------- */
 #menu-checkbox { display: none; }
-.toggle {
-  position: relative;
-  width: 40px; height: 40px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition-duration: .3s;
-}
-.bars {
-  width: 100%; height: 4px;
-  background-color: #1B0A2A;   /* dark for contrast on golden */
-  border-radius: 5px;
-  transition-duration: .3s;
-}
-#menu-checkbox:checked + .toggle #bar2 {
-  transform: translateY(14px) rotate(60deg);
-  margin-left: 0; transform-origin: right;
-  transition-duration: .3s; z-index: 2;
-}
-#menu-checkbox:checked + .toggle #bar1 {
-  transform: translateY(28px) rotate(-60deg);
-  transition-duration: .3s; transform-origin: left; z-index: 1;
-}
+.toggle { position: relative; width: 40px; height: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition-duration: .3s; }
+.bars { width: 100%; height: 4px; background-color: #1B0A2A; border-radius: 5px; transition-duration: .3s; }
+#menu-checkbox:checked + .toggle #bar2 { transform: translateY(14px) rotate(60deg); margin-left: 0; transform-origin: right; transition-duration: .3s; z-index: 2; }
+#menu-checkbox:checked + .toggle #bar1 { transform: translateY(28px) rotate(-60deg); transition-duration: .3s; transform-origin: left; z-index: 1; }
 #menu-checkbox:checked + .toggle { transform: rotate(-90deg); }
 
-/* -------- LEAF BUTTONS (Uiverse exact) -------- */
+/* -------- LEAF BUTTONS (exact) -------- */
 .leaf-btn {
   position: relative;
   padding: 13px 35px;
@@ -88,7 +65,7 @@ h1,h2,h3,h4 { @apply font-serif; }
 @keyframes inIcon5 { 0%{transform-origin:0 100%;transform:translate(-50%,0) rotate(0);} 35%{transform:rotate(-3deg);} 100%{transform:rotate(0);} }
 .fil-leaf-1{fill:#7B9B3A} .fil-leaf-2{fill:#556729} .fil-leaf-3{fill:#556729} .fil-leaf-4{fill:#3C4819} .fil-leaf-5{fill:#3C4819}
 
-/* -------- SOCIAL CARDS (EXACT Uiverse) -------- */
+/* -------- SOCIAL CARDS (exact Uiverse) -------- */
 .main { display: flex; flex-direction: column; gap: 0.5em; }
 .up { display: flex; flex-direction: row; gap: 0.5em; }
 .down { display: flex; flex-direction: row; gap: 0.5em; }
@@ -140,3 +117,20 @@ h1,h2,h3,h4 { @apply font-serif; }
 .card3:hover .github { fill: white; }
 .card4:hover { scale: 1.1; background-color: #8c9eff; }
 .card4:hover .discord { fill: white; }
+
+/* -------- 3D ZODIAC HOVER -------- */
+.zodiac-container {
+  perspective: 1000px;
+}
+.zodiac-card {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.zodiac-card:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+}
+.zodiac-img {
+  backface-visibility: hidden;
+}

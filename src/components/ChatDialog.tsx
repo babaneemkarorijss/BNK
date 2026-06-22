@@ -40,24 +40,16 @@ export default function ChatDialog({ onClose }: { onClose: () => void }) {
         <button onClick={onClose} className="text-xl">&times;</button>
       </div>
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-parchment/50">
-        {messages.map((m, i) => (
-          <div key={i} className={`flex ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] p-3 rounded-2xl ${m.sender === 'user' ? 'bg-divine-saffron text-white' : 'bg-white border'}`}>
-              {m.text}
-            </div>
+        {messages.map((m,i) => (
+          <div key={i} className={`flex ${m.sender==='user'?'justify-end':'justify-start'}`}>
+            <div className={`max-w-[80%] p-3 rounded-2xl ${m.sender==='user'?'bg-divine-saffron text-white':'bg-white border'}`}>{m.text}</div>
           </div>
         ))}
         {loading && <p className="text-sm text-gray-400 italic">Rahul Bhai typing…</p>}
         <div ref={bottomRef} />
       </div>
       <div className="p-4 border-t flex gap-2">
-        <input
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && send()}
-          placeholder="Type your message..."
-          className="flex-1 p-2 border rounded-xl"
-        />
+        <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key==='Enter'&&send()} placeholder="Type your message..." className="flex-1 p-2 border rounded-xl" />
         <button onClick={send} className="darshan-btn !py-2 !px-4">Send</button>
       </div>
     </div>

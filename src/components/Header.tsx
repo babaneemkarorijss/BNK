@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navItems = [
@@ -11,11 +11,10 @@ const navItems = [
   { label: 'Live Darshan', href: '/darshan' },
   { label: 'Bhajans', href: '/bhajans' },
   { label: 'Seva', href: '/seva' },
-  { label: 'Contact Ashram', href: '/contact' },
+  { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '/faq' },
 ];
 
-/* Leaf SVGs for buttons */
 const LeafSVGs = () => (
   <>
     <svg className="leaf-icon leaf-icon-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208.52 511.88">
@@ -38,28 +37,41 @@ const LeafSVGs = () => (
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark shadow-xl">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark shadow-xl'
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Hamburger on left */}
         <div className="w-12">
           <input type="checkbox" id="menu-checkbox" checked={open} onChange={e => setOpen(e.target.checked)} />
           <label className="toggle" htmlFor="menu-checkbox">
-            <div id="bar1" className="bars"></div>
-            <div id="bar2" className="bars"></div>
-            <div id="bar3" className="bars"></div>
+            <div id="bar1" className="bars" style={{ backgroundColor: scrolled ? '#1B0A2A' : '#FDF7E7' }}></div>
+            <div id="bar2" className="bars" style={{ backgroundColor: scrolled ? '#1B0A2A' : '#FDF7E7' }}></div>
+            <div id="bar3" className="bars" style={{ backgroundColor: scrolled ? '#1B0A2A' : '#FDF7E7' }}></div>
           </label>
         </div>
 
         {/* Centered Logo */}
         <Link href="/" className="flex-1 text-center">
-          <span className="font-serif text-2xl md:text-3xl font-bold text-midnight-devotion tracking-wider">
+          <span className={`font-serif text-2xl md:text-3xl font-bold tracking-wider ${
+            scrolled ? 'text-midnight-devotion' : 'text-white drop-shadow-lg'
+          }`}>
             Shri Neem Karori Baba
           </span>
         </Link>
 
-        {/* Empty space for symmetry */}
+        {/* Symmetry */}
         <div className="w-12" />
       </div>
 
