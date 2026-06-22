@@ -1,14 +1,7 @@
 import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+const config: NextConfig = {
   reactStrictMode: true,
-  images: {
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 768, 1024, 1280, 1536],
-  },
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
-  },
+  images: { formats: ['image/webp', 'image/avif'] },
+  experimental: { optimizePackageImports: ['lucide-react', 'framer-motion'] },
 };
-
-export default nextConfig;
+export default config;

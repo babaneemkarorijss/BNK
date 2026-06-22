@@ -1,8 +1,4 @@
-import { CreateMLCEngine, MLCEngine } from '@mlc-ai/web-llm';
-import { pipeline } from '@xenova/transformers';
-import { get, set } from 'idb-keyval';
-
-let engine: MLCEngine;
+let engine: any;
 let embedder: any;
 let knowledgeChunks: string[] = [];
 
@@ -14,15 +10,14 @@ async function loadKnowledgeBase() {
 }
 
 async function getEmbeddings(chunks: string[]) {
-  const cached = await get('rag-embeddings');
-  if (cached) return cached as number[][];
+  // Use dynamic import to avoid SSR
+  const { pipeline } = await import('@xenova/transformers');
   embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
   const embeddings: number[][] = [];
   for (const chunk of chunks) {
     const result = await embedder(chunk, { pooling: 'mean', normalize: true });
     embeddings.push(Array.from(result.data));
   }
-  await set('rag-embeddings', embeddings);
   return embeddings;
 }
 
@@ -39,6 +34,7 @@ function cosineSimilarity(a: number[], b: number[]) {
 export async function initialize() {
   await loadKnowledgeBase();
   const embeddings = await getEmbeddings(knowledgeChunks);
+  const { CreateMLCEngine } = await import('@mlc-ai/web-llm');
   engine = await CreateMLCEngine('TinyLlama-1.1B-Chat-v1.0-q4f16_1', {
     initProgressCallback: (info: any) => console.log('Loading model...', info.progress),
   });
@@ -46,12 +42,13 @@ export async function initialize() {
 }
 
 export async function generateReply(userMessage: string): Promise<string> {
+  if (!engine || !embedder) await initialize();
+  const queryEmbed = await embedder(userMessage, { pooling: 'mean', normalize: true });
+  const queryArr = Array.from(queryEmbed.data) as number[];
   const embeddings = await getEmbeddings(knowledgeChunks);
-  embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
-  const queryEmbed = (await embedder(userMessage, { pooling: 'mean', normalize: true })).data;
   const scored = knowledgeChunks.map((chunk, idx) => ({
     chunk,
-    score: cosineSimilarity(Array.from(queryEmbed) as number[], embeddings[idx]),
+    score: cosineSimilarity(queryArr, embeddings[idx]),
   }));
   scored.sort((a, b) => b.score - a.score);
   const topContext = scored.slice(0, 3).map(s => s.chunk).join('\n\n');
