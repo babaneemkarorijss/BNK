@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ZodiacWheel from '@/components/ZodiacWheel';
+import LeelaCard from '@/components/LeelaCard';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -13,51 +14,19 @@ export default function HomePage() {
     <main>
       {/* 1. Hero – layered devotional experience */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Full‑screen background */}
-        <Image
-          src="/assets/images/background.webp"
-          alt="Ashram background"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-
-        {/* Rotating mandala – centered */}
+        <Image src="/assets/images/background.webp" alt="Ashram background" fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative w-80 h-80 md:w-96 md:h-96 animate-spin-slow">
-            <Image
-              src="/assets/images/mandala.webp"
-              alt="Rotating mandala"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 320px, 384px"
-            />
+            <Image src="/assets/images/mandala.webp" alt="Rotating mandala" fill className="object-contain" sizes="(max-width: 768px) 320px, 384px" />
           </div>
         </div>
-
-        {/* Babaji – slowly pulsing */}
         <div className="relative z-10 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl animate-pulse-babaji">
-          <Image
-            src="/assets/images/babaji.webp"
-            alt="Neem Karori Baba"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 192px, 256px"
-          />
+          <Image src="/assets/images/babaji.webp" alt="Neem Karori Baba" fill className="object-cover" sizes="(max-width: 768px) 192px, 256px" />
         </div>
-
-        {/* Overlay text & CTA */}
         <div className="absolute bottom-16 left-0 right-0 z-20 text-center text-white px-4">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">
-            Ram Ram
-          </h1>
-          <p className="text-lg md:text-2xl font-light mb-6 drop-shadow">
-            Love, Serve, Remember – Always
-          </p>
-          <Link href="/horoscope" className="darshan-btn inline-block">
-            Today&apos;s Horoscope
-          </Link>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">Ram Ram</h1>
+          <p className="text-lg md:text-2xl font-light mb-6 drop-shadow">Love, Serve, Remember – Always</p>
+          <Link href="/horoscope" className="darshan-btn inline-block">Today&apos;s Horoscope</Link>
         </div>
       </section>
 
@@ -94,26 +63,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Leelas Highlight */}
+      {/* 5. Leelas Highlight – Uiverse Cards */}
       <section className="py-16 px-4 bg-sacred-red/5">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-sacred-red mb-6">Divine Leelas (Miracles)</h2>
           <p className="text-gray-600 mb-10">Stories that dissolve the mind and open the heart.</p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { slug: 'birth', title: 'Birth & Childhood', img: 'story-birth.webp' },
-              { slug: 'train', title: 'The Train Miracle', img: 'story-train.webp' },
-              { slug: 'feeding', title: 'Feeding the 500', img: 'story-feeding.webp' },
-            ].map(story => (
-              <Link key={story.slug} href={`/stories/${story.slug}`} className="divine-card block group">
-                <div className="relative w-full h-48 mb-4 rounded-xl overflow-hidden">
-                  <Image src={`/assets/images/${story.img}`} alt={story.title} fill className="object-cover group-hover:scale-105 transition-transform" sizes="300px" />
-                </div>
-                <h3 className="text-xl font-serif">{story.title}</h3>
-              </Link>
-            ))}
+          <div className="flex flex-wrap justify-center gap-8">
+            <LeelaCard
+              slug="birth"
+              title="Birth & Childhood"
+              description="The miraculous birth of Maharaj-ji and his early divine plays."
+            />
+            <LeelaCard
+              slug="train"
+              title="The Train Miracle"
+              description="How Babaji stopped a train with a single gesture to help a devotee."
+            />
+            <LeelaCard
+              slug="feeding"
+              title="Feeding the 500"
+              description="A small pot of kheer multiplied to feed a multitude – a leela of abundance."
+            />
           </div>
-          <Link href="/stories" className="text-divine-saffron font-semibold mt-6 inline-block">View all leelas →</Link>
+          <Link href="/stories" className="text-divine-saffron font-semibold mt-8 inline-block">View all leelas →</Link>
         </div>
       </section>
 

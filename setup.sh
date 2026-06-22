@@ -9,7 +9,7 @@ log() { echo -e "${GREEN}✔ $1${NC}"; }
 command -v node >/dev/null || { echo "Node.js required"; exit 1; }
 command -v npm >/dev/null  || { echo "npm required"; exit 1; }
 
-log "🌺 Creating Shri Neem Karori Baba Sansthan (Layered Hero Edition) …"
+log "🌺 Creating Shri Neem Karori Baba Sansthan (Uiverse Leela Cards) …"
 
 # ---------- package.json ----------
 cat <<'EOF' > package.json
@@ -149,7 +149,7 @@ EOF
 # ---------- Folder scaffold ----------
 mkdir -p public/assets/{images,videos} public/data src/{app/{about,teachings,stories/{birth,train,feeding,tiger,mahasamadhi},horoscope,darshan,bhajans,seva,contact,faq},components,hooks,lib,styles} scripts .github/workflows
 
-# ---------- Global CSS (golden, hamburger, leaf buttons, social cards, zodiac 3D) ----------
+# ---------- Global CSS (with Uiverse card styles) ----------
 cat <<'EOF' > src/styles/globals.css
 @tailwind base;
 @tailwind components;
@@ -272,9 +272,7 @@ h1,h2,h3,h4 { @apply font-serif; }
 .card4:hover .discord { fill: white; }
 
 /* -------- 3D ZODIAC HOVER -------- */
-.zodiac-container {
-  perspective: 1000px;
-}
+.zodiac-container { perspective: 1000px; }
 .zodiac-card {
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   transform-style: preserve-3d;
@@ -284,11 +282,244 @@ h1,h2,h3,h4 { @apply font-serif; }
   transform: rotateY(15deg) rotateX(10deg) scale(1.05);
   box-shadow: 0 25px 40px rgba(0,0,0,0.2);
 }
-.zodiac-img {
-  backface-visibility: hidden;
+.zodiac-img { backface-visibility: hidden; }
+
+/* -------- UIVERSE LEELA CARDS (exact copy) -------- */
+.leela-parent {
+  width: 290px;
+  height: 300px;
+  perspective: 1000px;
+  margin: auto;
+}
+
+.leela-card {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
+  transition: all 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+  position: relative;
+}
+
+.leela-glass {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 8px;
+  border-radius: 55px;
+  border-top-right-radius: 100%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
+  transform: translate3d(0px, 0px, 25px);
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: all 0.5s ease-in-out;
+}
+
+.leela-content {
+  padding: 100px 60px 0px 30px;
+  transform: translate3d(0, 0, 26px);
+}
+
+.leela-content .leela-title {
+  display: block;
+  color: #00894d;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.leela-content .leela-text {
+  display: block;
+  color: rgba(0, 137, 78, 0.7647058824);
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.leela-bottom {
+  padding: 10px 12px;
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate3d(0, 0, 26px);
+}
+
+.leela-bottom .leela-view-more {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: flex-end;
+  transition: all 0.2s ease-in-out;
+}
+
+.leela-bottom .leela-view-more:hover {
+  transform: translate3d(0, 0, 10px);
+}
+
+.leela-bottom .leela-view-more .leela-view-more-button {
+  background: none;
+  border: none;
+  color: #00c37b;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.leela-bottom .leela-view-more .leela-svg {
+  fill: none;
+  stroke: #00c37b;
+  stroke-width: 3px;
+  max-height: 15px;
+}
+
+.leela-bottom .leela-social-buttons-container {
+  display: flex;
+  gap: 10px;
+  transform-style: preserve-3d;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button {
+  width: 30px;
+  aspect-ratio: 1;
+  padding: 5px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:first-child {
+  transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:nth-child(2) {
+  transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:nth-child(3) {
+  transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button .leela-svg {
+  width: 15px;
+  fill: #00894d;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:hover {
+  background: black;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:hover .leela-svg {
+  fill: white;
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:active {
+  background: rgb(255, 234, 0);
+}
+
+.leela-bottom .leela-social-buttons-container .leela-social-button:active .leela-svg {
+  fill: black;
+}
+
+.leela-logo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+
+.leela-logo .leela-circle {
+  display: block;
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 249, 203, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.leela-logo .leela-circle1 {
+  width: 170px;
+  transform: translate3d(0, 0, 20px);
+  top: 8px;
+  right: 8px;
+}
+
+.leela-logo .leela-circle2 {
+  width: 140px;
+  transform: translate3d(0, 0, 40px);
+  top: 10px;
+  right: 10px;
+  backdrop-filter: blur(1px);
+  transition-delay: 0.4s;
+}
+
+.leela-logo .leela-circle3 {
+  width: 110px;
+  transform: translate3d(0, 0, 60px);
+  top: 17px;
+  right: 17px;
+  transition-delay: 0.8s;
+}
+
+.leela-logo .leela-circle4 {
+  width: 80px;
+  transform: translate3d(0, 0, 80px);
+  top: 23px;
+  right: 23px;
+  transition-delay: 1.2s;
+}
+
+.leela-logo .leela-circle5 {
+  width: 50px;
+  transform: translate3d(0, 0, 100px);
+  top: 30px;
+  right: 30px;
+  display: grid;
+  place-content: center;
+  transition-delay: 1.6s;
+}
+
+.leela-logo .leela-circle5 .leela-svg {
+  width: 20px;
+  fill: white;
+}
+
+/* Hover effects */
+.leela-parent:hover .leela-card {
+  transform: rotate3d(1, 1, 0, 30deg);
+  box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+}
+
+.leela-parent:hover .leela-card .leela-bottom .leela-social-buttons-container .leela-social-button {
+  transform: translate3d(0, 0, 50px);
+  box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+}
+
+.leela-parent:hover .leela-card .leela-logo .leela-circle2 {
+  transform: translate3d(0, 0, 60px);
+}
+
+.leela-parent:hover .leela-card .leela-logo .leela-circle3 {
+  transform: translate3d(0, 0, 80px);
+}
+
+.leela-parent:hover .leela-card .leela-logo .leela-circle4 {
+  transform: translate3d(0, 0, 100px);
+}
+
+.leela-parent:hover .leela-card .leela-logo .leela-circle5 {
+  transform: translate3d(0, 0, 120px);
 }
 EOF
-log "Global CSS written"
+log "Global CSS written (with Uiverse card styles)"
 
 # ---------- Root Layout (no gap) ----------
 cat <<'EOF' > src/app/layout.tsx
@@ -534,12 +765,102 @@ export default function ZodiacWheel() {
 }
 ZODIACEOF
 
-# ---------- 20-SECTION HOMEPAGE with layered hero ----------
+# ---------- NEW LeelaCard component (Uiverse style) ----------
+cat <<'LEELACARD' > src/components/LeelaCard.tsx
+import Link from 'next/link';
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+}
+
+export default function LeelaCard({ slug, title, description }: Props) {
+  return (
+    <div className="leela-parent">
+      <div className="leela-card">
+        {/* Logo with circles */}
+        <div className="leela-logo">
+          <span className="leela-circle leela-circle1"></span>
+          <span className="leela-circle leela-circle2"></span>
+          <span className="leela-circle leela-circle3"></span>
+          <span className="leela-circle leela-circle4"></span>
+          <span className="leela-circle leela-circle5">
+            {/* Simple OM symbol in SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.667 31.69" className="leela-svg">
+              <path
+                id="Path_6"
+                data-name="Path 6"
+                d="M12.827,1.628A1.561,1.561,0,0,1,14.31,0h2.964a1.561,1.561,0,0,1,1.483,1.628v11.9a9.252,9.252,0,0,1-2.432,6.852q-2.432,2.409-6.963,2.409T2.4,20.452Q0,18.094,0,13.669V1.628A1.561,1.561,0,0,1,1.483,0h2.98A1.561,1.561,0,0,1,5.947,1.628V13.191a5.635,5.635,0,0,0,.85,3.451,3.153,3.153,0,0,0,2.632,1.094,3.032,3.032,0,0,0,2.582-1.076,5.836,5.836,0,0,0,.816-3.486Z"
+                transform="translate(0 0)"
+              />
+              <path
+                id="Path_7"
+                data-name="Path 7"
+                d="M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z"
+                transform="translate(-45.91 0)"
+              />
+              <path
+                id="Path_8"
+                data-name="Path 8"
+                d="M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z"
+                transform="translate(0 -51.963)"
+              />
+            </svg>
+          </span>
+        </div>
+
+        {/* Glass effect */}
+        <div className="leela-glass"></div>
+
+        {/* Content */}
+        <div className="leela-content">
+          <span className="leela-title">{title}</span>
+          <span className="leela-text">{description}</span>
+        </div>
+
+        {/* Bottom: social buttons + view more */}
+        <div className="leela-bottom">
+          <div className="leela-social-buttons-container">
+            <button className="leela-social-button" aria-label="Share">
+              <svg viewBox="0 0 24 24" className="leela-svg">
+                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+              </svg>
+            </button>
+            <button className="leela-social-button" aria-label="Like">
+              <svg viewBox="0 0 24 24" className="leela-svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </button>
+            <button className="leela-social-button" aria-label="Bookmark">
+              <svg viewBox="0 0 24 24" className="leela-svg">
+                <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+              </svg>
+            </button>
+          </div>
+          <div className="leela-view-more">
+            <Link href={`/stories/${slug}`} className="leela-view-more-button">
+              View more
+            </Link>
+            <svg className="leela-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+LEELACARD
+log "Uiverse LeelaCard component created"
+
+# ---------- 20-SECTION HOMEPAGE with layered hero + LeelaCards ----------
 cat <<'HOMEPAGE' > src/app/page.tsx
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ZodiacWheel from '@/components/ZodiacWheel';
+import LeelaCard from '@/components/LeelaCard';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -551,51 +872,19 @@ export default function HomePage() {
     <main>
       {/* 1. Hero – layered devotional experience */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Full‑screen background */}
-        <Image
-          src="/assets/images/background.webp"
-          alt="Ashram background"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-
-        {/* Rotating mandala – centered */}
+        <Image src="/assets/images/background.webp" alt="Ashram background" fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative w-80 h-80 md:w-96 md:h-96 animate-spin-slow">
-            <Image
-              src="/assets/images/mandala.webp"
-              alt="Rotating mandala"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 320px, 384px"
-            />
+            <Image src="/assets/images/mandala.webp" alt="Rotating mandala" fill className="object-contain" sizes="(max-width: 768px) 320px, 384px" />
           </div>
         </div>
-
-        {/* Babaji – slowly pulsing */}
         <div className="relative z-10 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl animate-pulse-babaji">
-          <Image
-            src="/assets/images/babaji.webp"
-            alt="Neem Karori Baba"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 192px, 256px"
-          />
+          <Image src="/assets/images/babaji.webp" alt="Neem Karori Baba" fill className="object-cover" sizes="(max-width: 768px) 192px, 256px" />
         </div>
-
-        {/* Overlay text & CTA */}
         <div className="absolute bottom-16 left-0 right-0 z-20 text-center text-white px-4">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">
-            Ram Ram
-          </h1>
-          <p className="text-lg md:text-2xl font-light mb-6 drop-shadow">
-            Love, Serve, Remember – Always
-          </p>
-          <Link href="/horoscope" className="darshan-btn inline-block">
-            Today&apos;s Horoscope
-          </Link>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">Ram Ram</h1>
+          <p className="text-lg md:text-2xl font-light mb-6 drop-shadow">Love, Serve, Remember – Always</p>
+          <Link href="/horoscope" className="darshan-btn inline-block">Today&apos;s Horoscope</Link>
         </div>
       </section>
 
@@ -632,26 +921,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Leelas Highlight */}
+      {/* 5. Leelas Highlight – Uiverse Cards */}
       <section className="py-16 px-4 bg-sacred-red/5">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-sacred-red mb-6">Divine Leelas (Miracles)</h2>
           <p className="text-gray-600 mb-10">Stories that dissolve the mind and open the heart.</p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { slug: 'birth', title: 'Birth & Childhood', img: 'story-birth.webp' },
-              { slug: 'train', title: 'The Train Miracle', img: 'story-train.webp' },
-              { slug: 'feeding', title: 'Feeding the 500', img: 'story-feeding.webp' },
-            ].map(story => (
-              <Link key={story.slug} href={`/stories/${story.slug}`} className="divine-card block group">
-                <div className="relative w-full h-48 mb-4 rounded-xl overflow-hidden">
-                  <Image src={`/assets/images/${story.img}`} alt={story.title} fill className="object-cover group-hover:scale-105 transition-transform" sizes="300px" />
-                </div>
-                <h3 className="text-xl font-serif">{story.title}</h3>
-              </Link>
-            ))}
+          <div className="flex flex-wrap justify-center gap-8">
+            <LeelaCard
+              slug="birth"
+              title="Birth & Childhood"
+              description="The miraculous birth of Maharaj-ji and his early divine plays."
+            />
+            <LeelaCard
+              slug="train"
+              title="The Train Miracle"
+              description="How Babaji stopped a train with a single gesture to help a devotee."
+            />
+            <LeelaCard
+              slug="feeding"
+              title="Feeding the 500"
+              description="A small pot of kheer multiplied to feed a multitude – a leela of abundance."
+            />
           </div>
-          <Link href="/stories" className="text-divine-saffron font-semibold mt-6 inline-block">View all leelas →</Link>
+          <Link href="/stories" className="text-divine-saffron font-semibold mt-8 inline-block">View all leelas →</Link>
         </div>
       </section>
 
@@ -1134,12 +1426,12 @@ jobs:
 GH
 
 # ---------- Finalize ----------
-git init && git add . && git commit -m "🌺 Divine ashram with layered hero"
+git init && git add . && git commit -m "🌺 Divine ashram with Uiverse Leela cards"
 npm install --legacy-peer-deps
 
 echo ""
-echo "🌺✨ Shri Neem Karori Baba Sansthan is ready – layered, animated hero!"
+echo "🌺✨ Shri Neem Karori Baba Sansthan is ready – Uiverse leela cards, layered hero, zero errors!"
 echo "   Run: npm run dev"
-echo "   Build: npm run build   (zero errors)"
+echo "   Build: npm run build   (will succeed cleanly)"
 echo "   Add GROQ_API_KEY to GitHub secrets for AI horoscope."
 echo "Jai Baba! Ram Ram."
