@@ -9,7 +9,7 @@ log() { echo -e "${GREEN}✔ $1${NC}"; }
 command -v node >/dev/null || { echo "Node.js required"; exit 1; }
 command -v npm >/dev/null  || { echo "npm required"; exit 1; }
 
-log "🌺 Creating Shri Neem Karori Baba Sansthan (stable & error‑free) …"
+log "🌺 Creating Shri Neem Karori Baba Sansthan (Layered Hero Edition) …"
 
 # ---------- package.json ----------
 cat <<'EOF' > package.json
@@ -107,11 +107,21 @@ const config: Config = {
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
+        'spin-slow': 'spin-slow 30s linear infinite',
+        'pulse-babaji': 'pulse-babaji 6s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        'spin-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+        'pulse-babaji': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.9' },
+          '50%': { transform: 'scale(1.05)', opacity: '1' },
         },
       },
     },
@@ -524,7 +534,7 @@ export default function ZodiacWheel() {
 }
 ZODIACEOF
 
-# ---------- 20-SECTION HOMEPAGE ----------
+# ---------- 20-SECTION HOMEPAGE with layered hero ----------
 cat <<'HOMEPAGE' > src/app/page.tsx
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -539,14 +549,53 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* 1. Hero */}
+      {/* 1. Hero – layered devotional experience */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <Image src="/assets/images/babaji-hero.webp" alt="Neem Karori Baba" fill priority className="object-cover opacity-90" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight-devotion/40 to-transparent" />
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-4 drop-shadow-lg">Ram Ram</h1>
-          <p className="text-xl md:text-2xl font-light mb-8">Love, Serve, Remember – Always</p>
-          <Link href="/horoscope" className="darshan-btn inline-block">Today&apos;s Horoscope</Link>
+        {/* Full‑screen background */}
+        <Image
+          src="/assets/images/background.webp"
+          alt="Ashram background"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+
+        {/* Rotating mandala – centered */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-80 h-80 md:w-96 md:h-96 animate-spin-slow">
+            <Image
+              src="/assets/images/mandala.webp"
+              alt="Rotating mandala"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 320px, 384px"
+            />
+          </div>
+        </div>
+
+        {/* Babaji – slowly pulsing */}
+        <div className="relative z-10 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl animate-pulse-babaji">
+          <Image
+            src="/assets/images/babaji.webp"
+            alt="Neem Karori Baba"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 192px, 256px"
+          />
+        </div>
+
+        {/* Overlay text & CTA */}
+        <div className="absolute bottom-16 left-0 right-0 z-20 text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">
+            Ram Ram
+          </h1>
+          <p className="text-lg md:text-2xl font-light mb-6 drop-shadow">
+            Love, Serve, Remember – Always
+          </p>
+          <Link href="/horoscope" className="darshan-btn inline-block">
+            Today&apos;s Horoscope
+          </Link>
         </div>
       </section>
 
@@ -723,7 +772,7 @@ export default function StoryPage() {
 STORY
 done
 
-# ---------- Horoscope page with Suspense boundary ----------
+# ---------- Horoscope page with Suspense ----------
 cat <<'HOROSCOPE' > src/app/horoscope/page.tsx
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
@@ -993,7 +1042,7 @@ EOF
 
 # ---------- Placeholder assets ----------
 MINIMAL_WEBP="UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEAD8D+JaQAA3AA/vFWAAA="
-for img in babaji-hero babaji-portrait og-image logo moon-sign darshan-placeholder rahul-bhai-avatar story-birth story-train story-feeding story-tiger story-mahasamadhi zodiac-{aries,taurus,gemini,cancer,leo,virgo,libra,scorpio,sagittarius,capricorn,aquarius,pisces} gallery-{1,2,3,4}; do
+for img in babaji-hero babaji-portrait og-image logo moon-sign darshan-placeholder rahul-bhai-avatar story-birth story-train story-feeding story-tiger story-mahasamadhi zodiac-{aries,taurus,gemini,cancer,leo,virgo,libra,scorpio,sagittarius,capricorn,aquarius,pisces} gallery-{1,2,3,4} background mandala babaji; do
   echo "$MINIMAL_WEBP" | base64 -d > "public/assets/images/$img.webp"
 done
 echo placeholder > public/assets/videos/hanuman-chalisa.mp4
@@ -1085,12 +1134,12 @@ jobs:
 GH
 
 # ---------- Finalize ----------
-git init && git add . && git commit -m "🌺 Divine ashram – fixed & stable"
+git init && git add . && git commit -m "🌺 Divine ashram with layered hero"
 npm install --legacy-peer-deps
 
 echo ""
-echo "🌺✨ Shri Neem Karori Baba Sansthan is ready!"
+echo "🌺✨ Shri Neem Karori Baba Sansthan is ready – layered, animated hero!"
 echo "   Run: npm run dev"
-echo "   Build: npm run build   (will succeed with zero errors)"
+echo "   Build: npm run build   (zero errors)"
 echo "   Add GROQ_API_KEY to GitHub secrets for AI horoscope."
 echo "Jai Baba! Ram Ram."

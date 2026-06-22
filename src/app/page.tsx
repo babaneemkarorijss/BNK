@@ -11,14 +11,53 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* 1. Hero */}
+      {/* 1. Hero – layered devotional experience */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <Image src="/assets/images/babaji-hero.webp" alt="Neem Karori Baba" fill priority className="object-cover opacity-90" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight-devotion/40 to-transparent" />
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-4 drop-shadow-lg">Ram Ram</h1>
-          <p className="text-xl md:text-2xl font-light mb-8">Love, Serve, Remember – Always</p>
-          <Link href="/horoscope" className="darshan-btn inline-block">Today&apos;s Horoscope</Link>
+        {/* Full‑screen background */}
+        <Image
+          src="/assets/images/background.webp"
+          alt="Ashram background"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+
+        {/* Rotating mandala – centered */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-80 h-80 md:w-96 md:h-96 animate-spin-slow">
+            <Image
+              src="/assets/images/mandala.webp"
+              alt="Rotating mandala"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 320px, 384px"
+            />
+          </div>
+        </div>
+
+        {/* Babaji – slowly pulsing */}
+        <div className="relative z-10 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl animate-pulse-babaji">
+          <Image
+            src="/assets/images/babaji.webp"
+            alt="Neem Karori Baba"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 192px, 256px"
+          />
+        </div>
+
+        {/* Overlay text & CTA */}
+        <div className="absolute bottom-16 left-0 right-0 z-20 text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 drop-shadow-lg">
+            Ram Ram
+          </h1>
+          <p className="text-lg md:text-2xl font-light mb-6 drop-shadow">
+            Love, Serve, Remember – Always
+          </p>
+          <Link href="/horoscope" className="darshan-btn inline-block">
+            Today&apos;s Horoscope
+          </Link>
         </div>
       </section>
 
