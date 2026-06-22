@@ -47,13 +47,10 @@ export default function Footer() {
   return (
     <footer className="bg-midnight-devotion text-white pt-16 pb-8 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand & Quote */}
         <div>
           <h3 className="font-serif text-2xl mb-4">Shri Neem Karori Baba Sansthan</h3>
           <p className="text-gray-300 italic">“Love everyone, serve everyone, remember God.”</p>
         </div>
-
-        {/* Navigation links */}
         <div>
           <h4 className="font-serif text-lg mb-4 text-divine-saffron">Explore</h4>
           <ul className="space-y-2">
@@ -62,16 +59,12 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-
-        {/* Ashram info */}
         <div>
           <h4 className="font-serif text-lg mb-4 text-divine-saffron">Contact</h4>
           <p className="text-gray-300">Kainchi Dham, Nainital<br />Uttarakhand, India</p>
           <p className="text-gray-300 mt-2">Phone: +91-1234567890</p>
           <p className="text-gray-300">Email: info@neemkaroribaba.org</p>
         </div>
-
-        {/* Social cards (Uiverse) */}
         <div>
           <h4 className="font-serif text-lg mb-4 text-divine-saffron">Follow Us</h4>
           <div className="flex flex-wrap gap-4">

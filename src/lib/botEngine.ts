@@ -1,6 +1,33 @@
-let engine: any;
+// Load Transformers.js and WebLLM from CDN – no SSR issues!
+let pipeline: any;
+let CreateMLCEngine: any;
 let embedder: any;
+let engine: any;
 let knowledgeChunks: string[] = [];
+
+async function loadScript(src: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src="${src}"]`)) return resolve();
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = () => resolve();
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+async function loadDependencies() {
+  if (!pipeline) {
+    // Load Transformers.js from CDN
+    await loadScript('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js');
+    pipeline = (window as any).pipeline;
+  }
+  if (!CreateMLCEngine) {
+    // Load WebLLM from CDN
+    await loadScript('https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/dist/web-llm.min.js');
+    CreateMLCEngine = (window as any).mlc.CreateMLCEngine;
+  }
+}
 
 async function loadKnowledgeBase() {
   const res = await fetch('/bot-trainer.md');
@@ -10,9 +37,9 @@ async function loadKnowledgeBase() {
 }
 
 async function getEmbeddings(chunks: string[]) {
-  // Use dynamic import to avoid SSR
-  const { pipeline } = await import('@xenova/transformers');
-  embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+  if (!embedder) {
+    embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+  }
   const embeddings: number[][] = [];
   for (const chunk of chunks) {
     const result = await embedder(chunk, { pooling: 'mean', normalize: true });
@@ -32,9 +59,9 @@ function cosineSimilarity(a: number[], b: number[]) {
 }
 
 export async function initialize() {
+  await loadDependencies();
   await loadKnowledgeBase();
   const embeddings = await getEmbeddings(knowledgeChunks);
-  const { CreateMLCEngine } = await import('@mlc-ai/web-llm');
   engine = await CreateMLCEngine('TinyLlama-1.1B-Chat-v1.0-q4f16_1', {
     initProgressCallback: (info: any) => console.log('Loading model...', info.progress),
   });
@@ -43,9 +70,9 @@ export async function initialize() {
 
 export async function generateReply(userMessage: string): Promise<string> {
   if (!engine || !embedder) await initialize();
+  const embeddings = await getEmbeddings(knowledgeChunks);
   const queryEmbed = await embedder(userMessage, { pooling: 'mean', normalize: true });
   const queryArr = Array.from(queryEmbed.data) as number[];
-  const embeddings = await getEmbeddings(knowledgeChunks);
   const scored = knowledgeChunks.map((chunk, idx) => ({
     chunk,
     score: cosineSimilarity(queryArr, embeddings[idx]),

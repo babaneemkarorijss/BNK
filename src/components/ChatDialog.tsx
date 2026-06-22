@@ -3,19 +3,16 @@ import { useEffect, useRef, useState } from 'react';
 import { generateReply } from '@/lib/botEngine';
 
 export default function ChatDialog({ onClose }: { onClose: () => void }) {
-  const [messages, setMessages] = useState<{ sender: 'user' | 'rahul'; text: string }[]>([]);
+  const [messages, setMessages] = useState<{ sender: 'user'|'rahul'; text: string }[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Auto-send greeting
     setMessages([{ sender: 'rahul', text: 'Jai Neem Karori Baba ji ki! Main Rahul, Kainchi Dham se. Aapka din mangalmay ho.' }]);
   }, []);
 
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
 
   const send = async () => {
     if (!input.trim() || loading) return;

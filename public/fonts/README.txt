@@ -1,1 +1,1 @@
-Placeholder fonts
+Fonts placeholder

@@ -2,7 +2,6 @@
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
-// Dynamically import the actual chat UI, ssr:false to avoid botEngine loading on server
 const ChatDialog = dynamic(() => import('./ChatDialog'), { ssr: false });
 
 export default function ChatWidget() {
@@ -10,15 +9,13 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // Pre-warm the bot engine on page load
+    // Pre-warm the bot using CDN loads (no npm imports)
     import('@/lib/botEngine').then(engine => engine.initialize()).then(() => {
       setModelReady(true);
-      // Auto-open after a short delay with greeting
       setTimeout(() => setOpen(true), 1500);
     }).catch(console.error);
   }, []);
 
-  // Only show the floating button when model is ready
   if (!modelReady) return null;
 
   return (

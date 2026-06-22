@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Self-hosted fonts (placeholders) */
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
@@ -17,38 +16,26 @@
   font-display: swap;
   src: url('/fonts/InterVariable.woff2') format('woff2');
 }
+body { @apply font-sans text-gray-900 bg-parchment antialiased; }
+h1,h2,h3,h4 { @apply font-serif; }
+.divine-card {
+  @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-divine-saffron/20
+         hover:shadow-2xl hover:border-divine-saffron/40 transition-all duration-300;
+}
+.darshan-btn {
+  @apply bg-divine-saffron text-white font-semibold px-8 py-3 rounded-full
+         shadow-lg hover:bg-sacred-red hover:scale-105 transition-transform;
+}
 
-/* Hamburger toggle (Uiverse) */
+/* Hamburger */
 #menu-checkbox { display: none; }
-.toggle {
-  position: relative;
-  width: 40px; height: 40px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition-duration: .3s;
-}
-.bars {
-  width: 100%; height: 4px;
-  background-color: rgb(253, 255, 243);
-  border-radius: 5px;
-  transition-duration: .3s;
-}
-#menu-checkbox:checked + .toggle #bar2 {
-  transform: translateY(14px) rotate(60deg);
-  margin-left: 0; transform-origin: right;
-  transition-duration: .3s; z-index: 2;
-}
-#menu-checkbox:checked + .toggle #bar1 {
-  transform: translateY(28px) rotate(-60deg);
-  transition-duration: .3s; transform-origin: left; z-index: 1;
-}
+.toggle { position: relative; width: 40px; height: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition-duration: .3s; }
+.bars { width: 100%; height: 4px; background-color: rgb(253, 255, 243); border-radius: 5px; transition-duration: .3s; }
+#menu-checkbox:checked + .toggle #bar2 { transform: translateY(14px) rotate(60deg); margin-left: 0; transform-origin: right; transition-duration: .3s; z-index: 2; }
+#menu-checkbox:checked + .toggle #bar1 { transform: translateY(28px) rotate(-60deg); transition-duration: .3s; transform-origin: left; z-index: 1; }
 #menu-checkbox:checked + .toggle { transform: rotate(-90deg); }
 
-/* Leaf button styles (Uiverse) */
+/* Leaf buttons */
 .leaf-btn {
   position: relative;
   padding: 13px 35px;
@@ -75,7 +62,7 @@
 @keyframes inIcon5 { 0%{transform-origin:0 100%;transform:translate(-50%,0) rotate(0);} 35%{transform:rotate(-3deg);} 100%{transform:rotate(0);} }
 .fil-leaf-1{fill:#7B9B3A} .fil-leaf-2{fill:#556729} .fil-leaf-3{fill:#556729} .fil-leaf-4{fill:#3C4819} .fil-leaf-5{fill:#3C4819}
 
-/* Social media cards (Uiverse) */
+/* Social cards */
 .social-card {
   width: 70px; height: 70px;
   outline: none; border: none;

@@ -4,11 +4,11 @@ import Link from 'next/link';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'About Babaji', href: '/about' },
+  { label: 'About', href: '/about' },
   { label: 'Teachings', href: '/teachings' },
   { label: 'Leelas', href: '/stories' },
   { label: 'Horoscope', href: '/horoscope' },
-  { label: 'Live Darshan', href: '/darshan' },
+  { label: 'Darshan', href: '/darshan' },
   { label: 'Bhajans', href: '/bhajans' },
   { label: 'Seva', href: '/seva' },
   { label: 'Contact', href: '/contact' },
@@ -37,28 +37,22 @@ const LeafSVGs = () => (
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-midnight-devotion/90 backdrop-blur-md shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo / Brand */}
         <Link href="/" className="text-white font-serif text-2xl font-bold tracking-wider">
           Shri Neem Karori Baba
         </Link>
-
-        {/* Desktop nav */}
         <nav className="hidden md:flex gap-3 items-center">
           {navItems.map(item => (
-            <Link key={item.href} href={item.href} className="leaf-btn relative group inline-flex items-center">
+            <Link key={item.href} href={item.href} className="leaf-btn relative group">
               {item.label}
               <LeafSVGs />
             </Link>
           ))}
         </nav>
-
-        {/* Mobile hamburger */}
         <div className="md:hidden">
-          <input type="checkbox" id="menu-checkbox" checked={open} onChange={(e) => setOpen(e.target.checked)} />
+          <input type="checkbox" id="menu-checkbox" checked={open} onChange={e => setOpen(e.target.checked)} />
           <label className="toggle" htmlFor="menu-checkbox">
             <div id="bar1" className="bars"></div>
             <div id="bar2" className="bars"></div>
@@ -66,8 +60,6 @@ export default function Header() {
           </label>
         </div>
       </div>
-
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-midnight-devotion/95 backdrop-blur-md border-t border-white/10 overflow-y-auto max-h-[80vh]">
           <nav className="flex flex-col p-4 space-y-3">
