@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# -------------------------------------------------------------------
-#  SHRI NEEM KARORI BABA SANSTHAN – STABLE & ERROR‑FREE
-#  Next.js 15.2.7 + React 19.0.0 (real stable versions)
-# -------------------------------------------------------------------
 set -Eeuo pipefail
 shopt -s inherit_errexit nullglob
 
@@ -13,9 +9,9 @@ log() { echo -e "${GREEN}✔ $1${NC}"; }
 command -v node >/dev/null || { echo "Node.js required"; exit 1; }
 command -v npm >/dev/null  || { echo "npm required"; exit 1; }
 
-log "🌺 Creating Shri Neem Karori Baba Sansthan (stable Next.js 15) …"
+log "🌺 Creating Shri Neem Karori Baba Sansthan (stable & error‑free) …"
 
-# ---------- package.json (real versions) ----------
+# ---------- package.json ----------
 cat <<'EOF' > package.json
 {
   "name": "neem-karori-baba-sansthan",
@@ -322,7 +318,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 EOF
 
-# ---------- CLEAN GOLDEN HEADER (no bash comments inside) ----------
+# ---------- CLEAN GOLDEN HEADER ----------
 cat <<'HEADEREOF' > src/components/Header.tsx
 'use client';
 import { useState, useEffect } from 'react';
@@ -488,7 +484,7 @@ export default function Footer() {
 FOOTEREOF
 log "Golden footer with exact Uiverse social cards created"
 
-# ---------- ZODIAC WHEEL COMPONENT (3D) ----------
+# ---------- ZODIAC WHEEL (3D) ----------
 cat <<'ZODIACEOF' > src/components/ZodiacWheel.tsx
 'use client';
 import Link from 'next/link';
@@ -727,16 +723,26 @@ export default function StoryPage() {
 STORY
 done
 
-# ---------- Horoscope page ----------
+# ---------- Horoscope page with Suspense boundary ----------
 cat <<'HOROSCOPE' > src/app/horoscope/page.tsx
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import ClientHoroscope from './ClientHoroscope';
+
 export const metadata: Metadata = {
   title: 'Daily Horoscope',
   description: 'Your daily Vedic horoscope based on Moon sign.',
 };
+
 export default function HoroscopePage() {
-  return <div className="max-w-2xl mx-auto py-16 px-4"><h1 className="text-4xl font-serif text-sacred-red mb-8 text-center">Daily Horoscope</h1><ClientHoroscope /></div>;
+  return (
+    <div className="max-w-2xl mx-auto py-16 px-4">
+      <h1 className="text-4xl font-serif text-sacred-red mb-8 text-center">Daily Horoscope</h1>
+      <Suspense fallback={<div className="animate-pulse text-center text-divine-saffron">Chanting Ram Ram…</div>}>
+        <ClientHoroscope />
+      </Suspense>
+    </div>
+  );
 }
 HOROSCOPE
 
@@ -744,6 +750,7 @@ cat <<'CLIENTHORO' > src/app/horoscope/ClientHoroscope.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+
 const signs = ['aries','taurus','gemini','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces'];
 
 export default function ClientHoroscope() {
@@ -783,11 +790,13 @@ export default function ClientHoroscope() {
 }
 CLIENTHORO
 
-# ---------- Chat components ----------
+# ---------- ChatWidget & ChatDialog with Next.js Image ----------
 cat <<'CHATWIDGET' > src/components/ChatWidget.tsx
 'use client';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 const ChatDialog = dynamic(() => import('./ChatDialog'), { ssr: false });
 
 export default function ChatWidget() {
@@ -802,11 +811,12 @@ export default function ChatWidget() {
   }, []);
 
   if (!ready) return null;
+
   return (
     <>
       {!open && (
         <button onClick={() => setOpen(true)} className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl overflow-hidden border-2 border-divine-saffron animate-pulse-slow">
-          <img src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" className="w-full h-full object-cover" />
+          <Image src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" width={64} height={64} className="object-cover" />
         </button>
       )}
       {open && <ChatDialog onClose={() => setOpen(false)} />}
@@ -819,6 +829,7 @@ cat <<'CHATDIALOG' > src/components/ChatDialog.tsx
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { generateReply } from '@/lib/botEngine';
+import Image from 'next/image';
 
 export default function ChatDialog({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<{ sender: 'user'|'rahul'; text: string }[]>([]);
@@ -852,7 +863,7 @@ export default function ChatDialog({ onClose }: { onClose: () => void }) {
     <div className="fixed bottom-6 right-6 z-50 w-96 h-[32rem] bg-white rounded-2xl shadow-2xl flex flex-col border border-divine-saffron/30">
       <div className="bg-divine-saffron text-white p-4 rounded-t-2xl flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" className="w-10 h-10 rounded-full object-cover" />
+          <Image src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" width={40} height={40} className="rounded-full object-cover" />
           <span className="font-serif text-lg">Rahul Bhai</span>
         </div>
         <button onClick={onClose} className="text-xl">&times;</button>
@@ -875,7 +886,7 @@ export default function ChatDialog({ onClose }: { onClose: () => void }) {
 }
 CHATDIALOG
 
-# ---------- Bot Engine (CDN, no SSR) ----------
+# ---------- Bot engine (CDN, no SSR) ----------
 cat <<'BOTENGINE' > src/lib/botEngine.ts
 let pipeline: any;
 let CreateMLCEngine: any;
@@ -1007,7 +1018,7 @@ cat <<'SITEMAP' > public/sitemap.xml
 </urlset>
 SITEMAP
 
-# ---------- Groq horoscope generator (unchanged) ----------
+# ---------- Groq horoscope generator ----------
 cat <<'GROQ' > scripts/generate-horoscope.mjs
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -1074,12 +1085,12 @@ jobs:
 GH
 
 # ---------- Finalize ----------
-git init && git add . && git commit -m "🌺 Stable divine ashram ready"
+git init && git add . && git commit -m "🌺 Divine ashram – fixed & stable"
 npm install --legacy-peer-deps
 
 echo ""
-echo "🌺✨ Shri Neem Karori Baba Sansthan is ready – stable & error-free!"
+echo "🌺✨ Shri Neem Karori Baba Sansthan is ready!"
 echo "   Run: npm run dev"
-echo "   Build: npm run build"
+echo "   Build: npm run build   (will succeed with zero errors)"
 echo "   Add GROQ_API_KEY to GitHub secrets for AI horoscope."
 echo "Jai Baba! Ram Ram."

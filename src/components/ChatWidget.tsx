@@ -1,6 +1,8 @@
 'use client';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 const ChatDialog = dynamic(() => import('./ChatDialog'), { ssr: false });
 
 export default function ChatWidget() {
@@ -15,11 +17,12 @@ export default function ChatWidget() {
   }, []);
 
   if (!ready) return null;
+
   return (
     <>
       {!open && (
         <button onClick={() => setOpen(true)} className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl overflow-hidden border-2 border-divine-saffron animate-pulse-slow">
-          <img src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" className="w-full h-full object-cover" />
+          <Image src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" width={64} height={64} className="object-cover" />
         </button>
       )}
       {open && <ChatDialog onClose={() => setOpen(false)} />}

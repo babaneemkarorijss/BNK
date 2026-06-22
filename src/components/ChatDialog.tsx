@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { generateReply } from '@/lib/botEngine';
+import Image from 'next/image';
 
 export default function ChatDialog({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<{ sender: 'user'|'rahul'; text: string }[]>([]);
@@ -34,7 +35,7 @@ export default function ChatDialog({ onClose }: { onClose: () => void }) {
     <div className="fixed bottom-6 right-6 z-50 w-96 h-[32rem] bg-white rounded-2xl shadow-2xl flex flex-col border border-divine-saffron/30">
       <div className="bg-divine-saffron text-white p-4 rounded-t-2xl flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" className="w-10 h-10 rounded-full object-cover" />
+          <Image src="/assets/images/rahul-bhai-avatar.webp" alt="Rahul Bhai" width={40} height={40} className="rounded-full object-cover" />
           <span className="font-serif text-lg">Rahul Bhai</span>
         </div>
         <button onClick={onClose} className="text-xl">&times;</button>
