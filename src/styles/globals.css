@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+    src: url('/fonts/PlayfairDisplay-VariableFont.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/InterVariable.woff2') format('woff2');
+  }
+  body {
+    @apply font-sans text-gray-900 bg-parchment antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+@layer components {
+  .divine-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-divine-saffron/20
+           hover:shadow-2xl hover:border-divine-saffron/40 transition-all duration-300;
+  }
+  .darshan-btn {
+    @apply bg-divine-saffron text-white font-semibold px-8 py-3 rounded-full
+           shadow-lg hover:bg-sacred-red hover:scale-105 transition-transform;
+  }
+}

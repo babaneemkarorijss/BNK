@@ -1,0 +1,27 @@
+name: Daily Horoscope Generation
+
+on:
+  schedule:
+    # Runs at 1:30 AM IST (20:00 UTC previous day) – within the 12–5 AM window
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Generate Horoscope
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: node scripts/generate-horoscope.mjs
+      - name: Commit & Push
+        run: |
+          git config user.name "Babaji-Bot"
+          git config user.email "bot@neemkaroribaba.org"
+          git add public/data/daily-horoscope.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🌅 Daily Horoscope $(date +'%Y-%m-%d')" && git push)
