@@ -4,17 +4,18 @@ import Link from 'next/link';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About Babaji', href: '/about' },
   { label: 'Teachings', href: '/teachings' },
   { label: 'Leelas', href: '/stories' },
-  { label: 'Horoscope', href: '/horoscope' },
-  { label: 'Darshan', href: '/darshan' },
+  { label: 'Daily Horoscope', href: '/horoscope' },
+  { label: 'Live Darshan', href: '/darshan' },
   { label: 'Bhajans', href: '/bhajans' },
   { label: 'Seva', href: '/seva' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact Ashram', href: '/contact' },
   { label: 'FAQ', href: '/faq' },
 ];
 
+/* Leaf SVGs for buttons */
 const LeafSVGs = () => (
   <>
     <svg className="leaf-icon leaf-icon-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208.52 511.88">
@@ -37,21 +38,12 @@ const LeafSVGs = () => (
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-midnight-devotion/90 backdrop-blur-md shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark shadow-xl">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="text-white font-serif text-2xl font-bold tracking-wider">
-          Shri Neem Karori Baba
-        </Link>
-        <nav className="hidden md:flex gap-3 items-center">
-          {navItems.map(item => (
-            <Link key={item.href} href={item.href} className="leaf-btn relative group">
-              {item.label}
-              <LeafSVGs />
-            </Link>
-          ))}
-        </nav>
-        <div className="md:hidden">
+        {/* Hamburger on left */}
+        <div className="w-12">
           <input type="checkbox" id="menu-checkbox" checked={open} onChange={e => setOpen(e.target.checked)} />
           <label className="toggle" htmlFor="menu-checkbox">
             <div id="bar1" className="bars"></div>
@@ -59,12 +51,29 @@ export default function Header() {
             <div id="bar3" className="bars"></div>
           </label>
         </div>
+
+        {/* Centered Logo */}
+        <Link href="/" className="flex-1 text-center">
+          <span className="font-serif text-2xl md:text-3xl font-bold text-midnight-devotion tracking-wider">
+            Shri Neem Karori Baba
+          </span>
+        </Link>
+
+        {/* Empty space for symmetry */}
+        <div className="w-12" />
       </div>
+
+      {/* Dropdown menu (golden background) */}
       {open && (
-        <div className="md:hidden bg-midnight-devotion/95 backdrop-blur-md border-t border-white/10 overflow-y-auto max-h-[80vh]">
-          <nav className="flex flex-col p-4 space-y-3">
+        <div className="absolute top-full left-0 right-0 bg-gradient-to-b from-golden-dark/95 to-divine-saffron/95 backdrop-blur-md border-t border-white/20 shadow-2xl">
+          <nav className="max-w-3xl mx-auto py-6 px-4 flex flex-wrap justify-center gap-4">
             {navItems.map(item => (
-              <Link key={item.href} href={item.href} className="leaf-btn w-full text-center" onClick={() => setOpen(false)}>
+              <Link
+                key={item.href}
+                href={item.href}
+                className="leaf-btn"
+                onClick={() => setOpen(false)}
+              >
                 {item.label}
                 <LeafSVGs />
               </Link>

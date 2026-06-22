@@ -18,6 +18,8 @@
 }
 body { @apply font-sans text-gray-900 bg-parchment antialiased; }
 h1,h2,h3,h4 { @apply font-serif; }
+
+/* Divine card for pages */
 .divine-card {
   @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-divine-saffron/20
          hover:shadow-2xl hover:border-divine-saffron/40 transition-all duration-300;
@@ -27,15 +29,37 @@ h1,h2,h3,h4 { @apply font-serif; }
          shadow-lg hover:bg-sacred-red hover:scale-105 transition-transform;
 }
 
-/* Hamburger */
+/* -------- HAMBURGER (Uiverse exact) -------- */
 #menu-checkbox { display: none; }
-.toggle { position: relative; width: 40px; height: 40px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition-duration: .3s; }
-.bars { width: 100%; height: 4px; background-color: rgb(253, 255, 243); border-radius: 5px; transition-duration: .3s; }
-#menu-checkbox:checked + .toggle #bar2 { transform: translateY(14px) rotate(60deg); margin-left: 0; transform-origin: right; transition-duration: .3s; z-index: 2; }
-#menu-checkbox:checked + .toggle #bar1 { transform: translateY(28px) rotate(-60deg); transition-duration: .3s; transform-origin: left; z-index: 1; }
+.toggle {
+  position: relative;
+  width: 40px; height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: .3s;
+}
+.bars {
+  width: 100%; height: 4px;
+  background-color: #1B0A2A;   /* dark for contrast on golden */
+  border-radius: 5px;
+  transition-duration: .3s;
+}
+#menu-checkbox:checked + .toggle #bar2 {
+  transform: translateY(14px) rotate(60deg);
+  margin-left: 0; transform-origin: right;
+  transition-duration: .3s; z-index: 2;
+}
+#menu-checkbox:checked + .toggle #bar1 {
+  transform: translateY(28px) rotate(-60deg);
+  transition-duration: .3s; transform-origin: left; z-index: 1;
+}
 #menu-checkbox:checked + .toggle { transform: rotate(-90deg); }
 
-/* Leaf buttons */
+/* -------- LEAF BUTTONS (Uiverse exact) -------- */
 .leaf-btn {
   position: relative;
   padding: 13px 35px;
@@ -47,6 +71,8 @@ h1,h2,h3,h4 { @apply font-serif; }
   border-radius: 8px;
   box-shadow: 2px 2px 5px #18181869, inset 2px 2px 10px #ffffffb0;
   transition: all .3s ease-in-out;
+  display: inline-block;
+  text-align: center;
 }
 .leaf-icon { position: absolute; top: 10%; left: 50%; transform: translate(-50%,0); width: 0px; height: auto; transition: all .5s ease-in-out; z-index: -1; }
 .leaf-btn:hover { padding: 13px 25px; border-radius: 8px 8px 24px 24px; }
@@ -62,21 +88,55 @@ h1,h2,h3,h4 { @apply font-serif; }
 @keyframes inIcon5 { 0%{transform-origin:0 100%;transform:translate(-50%,0) rotate(0);} 35%{transform:rotate(-3deg);} 100%{transform:rotate(0);} }
 .fil-leaf-1{fill:#7B9B3A} .fil-leaf-2{fill:#556729} .fil-leaf-3{fill:#556729} .fil-leaf-4{fill:#3C4819} .fil-leaf-5{fill:#3C4819}
 
-/* Social cards */
-.social-card {
-  width: 70px; height: 70px;
+/* -------- SOCIAL CARDS (EXACT Uiverse) -------- */
+.main { display: flex; flex-direction: column; gap: 0.5em; }
+.up { display: flex; flex-direction: row; gap: 0.5em; }
+.down { display: flex; flex-direction: row; gap: 0.5em; }
+.card1 {
+  width: 90px; height: 90px;
   outline: none; border: none;
   background: white;
-  box-shadow: rgba(50,50,93,0.25) 0px 2px 5px -1px, rgba(0,0,0,0.3) 0px 1px 3px -1px;
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: .2s ease-in-out;
-  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
 }
-.social-card:hover { cursor: pointer; scale: 1.1; }
-.card-instagram:hover { background-color: #cc39a4; }
-.card-instagram:hover .instagram-svg { fill: white; }
-.card-twitter:hover { background-color: #03A9F4; }
-.card-twitter:hover .twitter-svg { fill: white; }
-.card-github:hover { background-color: black; }
-.card-github:hover .github-svg { fill: white; }
-.card-discord:hover { background-color: #8c9eff; }
-.card-discord:hover .discord-svg { fill: white; }
+.instagram { margin-top: 1.5em; margin-left: 1.2em; fill: #cc39a4; }
+.card2 {
+  width: 90px; height: 90px;
+  outline: none; border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+.twitter { margin-top: 1.5em; margin-left: -.9em; fill: #03A9F4; }
+.card3 {
+  width: 90px; height: 90px;
+  outline: none; border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+.github { margin-top: -.6em; margin-left: 1.2em; }
+.card4 {
+  width: 90px; height: 90px;
+  outline: none; border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+.discord { margin-top: -.9em; margin-left: -1.2em; fill: #8c9eff; }
+.card1:hover { scale: 1.1; background-color: #cc39a4; }
+.card1:hover .instagram { fill: white; }
+.card2:hover { scale: 1.1; background-color: #03A9F4; }
+.card2:hover .twitter { fill: white; }
+.card3:hover { scale: 1.1; background-color: black; }
+.card3:hover .github { fill: white; }
+.card4:hover { scale: 1.1; background-color: #8c9eff; }
+.card4:hover .discord { fill: white; }

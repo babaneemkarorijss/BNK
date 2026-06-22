@@ -9,6 +9,8 @@ const config: Config = {
         'tulsi-green': '#2E5A3B',
         parchment: '#FDF7E7',
         'midnight-devotion': '#1B0A2A',
+        'golden-light': '#FFD966',
+        'golden-dark': '#B8860B',
       },
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
