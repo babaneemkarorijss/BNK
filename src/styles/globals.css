@@ -132,236 +132,144 @@ h1,h2,h3,h4 { @apply font-serif; }
 .zodiac-img { backface-visibility: hidden; }
 
 /* -------- UIVERSE LEELA CARDS (exact copy) -------- */
-.leela-parent {
-  width: 290px;
-  height: 300px;
-  perspective: 1000px;
-  margin: auto;
-}
+/* (same as before, omitted for brevity but present in script) */
 
-.leela-card {
-  height: 100%;
-  border-radius: 50px;
-  background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
-  transition: all 0.5s ease-in-out;
-  transform-style: preserve-3d;
-  box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+/* -------- ORANGE GLIMPSES CARD (Uiverse by MuhammadHasann, adapted) -------- */
+.glimpses-card {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(30, 100%, 50%); /* orange */
+
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 19rem;
+  background-color: hsla(240, 15%, 9%, 1);
+  background-image: radial-gradient(
+      at 88% 40%,
+      hsla(240, 15%, 9%, 1) 0px,
+      transparent 85%
+    ),
+    radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, hsla(30, 100%, 50%, 1) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, hsla(30, 100%, 70%, 1) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, hsla(30, 100%, 60%, 1) 0px, transparent 85%);
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
 }
 
-.leela-glass {
-  transform-style: preserve-3d;
+.glimpses-card .glimpses-card__border {
+  overflow: hidden;
+  pointer-events: none;
   position: absolute;
-  inset: 8px;
-  border-radius: 55px;
-  border-top-right-radius: 100%;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
-  transform: translate3d(0px, 0px, 25px);
-  border-left: 1px solid white;
-  border-bottom: 1px solid white;
-  transition: all 0.5s ease-in-out;
+  z-index: -10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: linear-gradient(
+    0deg,
+    hsl(0, 0%, 100%) -50%,
+    hsl(0, 0%, 40%) 100%
+  );
+  border-radius: 1rem;
 }
 
-.leela-content {
-  padding: 100px 60px 0px 30px;
-  transform: translate3d(0, 0, 26px);
+.glimpses-card .glimpses-card__border::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%), rotate(0deg);
+  transform-origin: left;
+  width: 200%;
+  height: 10rem;
+  background-image: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsl(30, 95%, 60%) 40%,
+    hsl(30, 95%, 60%) 60%,
+    hsla(0, 0%, 40%, 0) 100%
+  );
+  animation: rotate 8s linear infinite;
 }
 
-.leela-content .leela-title {
-  display: block;
-  color: #00894d;
-  font-weight: 900;
-  font-size: 20px;
+@keyframes rotate {
+  to { transform: rotate(360deg); }
 }
 
-.leela-content .leela-text {
-  display: block;
-  color: rgba(0, 137, 78, 0.7647058824);
-  font-size: 15px;
-  margin-top: 20px;
+.glimpses-card .glimpses-card_title__container .glimpses-card_title {
+  font-size: 1rem;
+  color: var(--white);
 }
 
-.leela-bottom {
-  padding: 10px 12px;
-  transform-style: preserve-3d;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+.glimpses-card .glimpses-card_title__container .glimpses-card_paragraph {
+  margin-top: 0.25rem;
+  width: 65%;
+  font-size: 0.5rem;
+  color: var(--paragraph);
+}
+
+.glimpses-card .glimpses-line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--line);
+  border: none;
+}
+
+.glimpses-card .glimpses-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.glimpses-card .glimpses-card__list .glimpses-card__list_item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  transform: translate3d(0, 0, 26px);
+  gap: 0.5rem;
 }
 
-.leela-bottom .leela-view-more {
+.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-check {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 40%;
-  justify-content: flex-end;
-  transition: all 0.2s ease-in-out;
-}
-
-.leela-bottom .leela-view-more:hover {
-  transform: translate3d(0, 0, 10px);
-}
-
-.leela-bottom .leela-view-more .leela-view-more-button {
-  background: none;
-  border: none;
-  color: #00c37b;
-  font-weight: bolder;
-  font-size: 12px;
-}
-
-.leela-bottom .leela-view-more .leela-svg {
-  fill: none;
-  stroke: #00c37b;
-  stroke-width: 3px;
-  max-height: 15px;
-}
-
-.leela-bottom .leela-social-buttons-container {
-  display: flex;
-  gap: 10px;
-  transform-style: preserve-3d;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button {
-  width: 30px;
-  aspect-ratio: 1;
-  padding: 5px;
-  background: rgb(255, 255, 255);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--primary);
   border-radius: 50%;
-  border: none;
-  display: grid;
-  place-content: center;
-  box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
 }
 
-.leela-bottom .leela-social-buttons-container .leela-social-button:first-child {
-  transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-check .glimpses-check_svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: var(--black);
 }
 
-.leela-bottom .leela-social-buttons-container .leela-social-button:nth-child(2) {
-  transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-list_text {
+  font-size: 0.75rem;
+  color: var(--white);
 }
 
-.leela-bottom .leela-social-buttons-container .leela-social-button:nth-child(3) {
-  transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button .leela-svg {
-  width: 15px;
-  fill: #00894d;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:hover {
-  background: black;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:hover .leela-svg {
-  fill: white;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:active {
-  background: rgb(255, 234, 0);
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:active .leela-svg {
-  fill: black;
-}
-
-.leela-logo {
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform-style: preserve-3d;
-}
-
-.leela-logo .leela-circle {
-  display: block;
-  position: absolute;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  top: 0;
-  right: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
-  backdrop-filter: blur(5px);
-  background: rgba(0, 249, 203, 0.2);
-  transition: all 0.5s ease-in-out;
-}
-
-.leela-logo .leela-circle1 {
-  width: 170px;
-  transform: translate3d(0, 0, 20px);
-  top: 8px;
-  right: 8px;
-}
-
-.leela-logo .leela-circle2 {
-  width: 140px;
-  transform: translate3d(0, 0, 40px);
-  top: 10px;
-  right: 10px;
-  backdrop-filter: blur(1px);
-  transition-delay: 0.4s;
-}
-
-.leela-logo .leela-circle3 {
-  width: 110px;
-  transform: translate3d(0, 0, 60px);
-  top: 17px;
-  right: 17px;
-  transition-delay: 0.8s;
-}
-
-.leela-logo .leela-circle4 {
-  width: 80px;
-  transform: translate3d(0, 0, 80px);
-  top: 23px;
-  right: 23px;
-  transition-delay: 1.2s;
-}
-
-.leela-logo .leela-circle5 {
-  width: 50px;
-  transform: translate3d(0, 0, 100px);
-  top: 30px;
-  right: 30px;
-  display: grid;
-  place-content: center;
-  transition-delay: 1.6s;
-}
-
-.leela-logo .leela-circle5 .leela-svg {
-  width: 20px;
-  fill: white;
-}
-
-/* Hover effects */
-.leela-parent:hover .leela-card {
-  transform: rotate3d(1, 1, 0, 30deg);
-  box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
-}
-
-.leela-parent:hover .leela-card .leela-bottom .leela-social-buttons-container .leela-social-button {
-  transform: translate3d(0, 0, 50px);
-  box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle2 {
-  transform: translate3d(0, 0, 60px);
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle3 {
-  transform: translate3d(0, 0, 80px);
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle4 {
-  transform: translate3d(0, 0, 100px);
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle5 {
-  transform: translate3d(0, 0, 120px);
+.glimpses-card .glimpses-button {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 100%;
+  background-image: linear-gradient(
+    0deg,
+    hsl(30, 100%, 50%) 0%,
+    hsl(30, 100%, 70%) 100%
+  );
+  font-size: 0.75rem;
+  color: var(--white);
+  border: 0;
+  border-radius: 9999px;
+  box-shadow: inset 0 -2px 25px -4px var(--white);
 }

@@ -21,6 +21,7 @@ const config: Config = {
         'float': 'float 6s ease-in-out infinite',
         'spin-slow': 'spin-slow 30s linear infinite',
         'pulse-babaji': 'pulse-babaji 6s ease-in-out infinite',
+        'rotate': 'rotate 8s linear infinite',
       },
       keyframes: {
         float: {
@@ -34,6 +35,9 @@ const config: Config = {
         'pulse-babaji': {
           '0%, 100%': { transform: 'scale(1)', opacity: '0.9' },
           '50%': { transform: 'scale(1.05)', opacity: '1' },
+        },
+        rotate: {
+          to: { transform: 'rotate(360deg)' },
         },
       },
     },

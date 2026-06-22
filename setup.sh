@@ -9,7 +9,7 @@ log() { echo -e "${GREEN}✔ $1${NC}"; }
 command -v node >/dev/null || { echo "Node.js required"; exit 1; }
 command -v npm >/dev/null  || { echo "npm required"; exit 1; }
 
-log "🌺 Creating Shri Neem Karori Baba Sansthan (Uiverse Leela Cards) …"
+log "🌺 Creating Shri Neem Karori Baba Sansthan (Uiverse Glimpses Cards) …"
 
 # ---------- package.json ----------
 cat <<'EOF' > package.json
@@ -109,6 +109,7 @@ const config: Config = {
         'float': 'float 6s ease-in-out infinite',
         'spin-slow': 'spin-slow 30s linear infinite',
         'pulse-babaji': 'pulse-babaji 6s ease-in-out infinite',
+        'rotate': 'rotate 8s linear infinite',
       },
       keyframes: {
         float: {
@@ -122,6 +123,9 @@ const config: Config = {
         'pulse-babaji': {
           '0%, 100%': { transform: 'scale(1)', opacity: '0.9' },
           '50%': { transform: 'scale(1.05)', opacity: '1' },
+        },
+        rotate: {
+          to: { transform: 'rotate(360deg)' },
         },
       },
     },
@@ -149,7 +153,7 @@ EOF
 # ---------- Folder scaffold ----------
 mkdir -p public/assets/{images,videos} public/data src/{app/{about,teachings,stories/{birth,train,feeding,tiger,mahasamadhi},horoscope,darshan,bhajans,seva,contact,faq},components,hooks,lib,styles} scripts .github/workflows
 
-# ---------- Global CSS (with Uiverse card styles) ----------
+# ---------- Global CSS (includes all styles + new orange glimpse card) ----------
 cat <<'EOF' > src/styles/globals.css
 @tailwind base;
 @tailwind components;
@@ -285,241 +289,149 @@ h1,h2,h3,h4 { @apply font-serif; }
 .zodiac-img { backface-visibility: hidden; }
 
 /* -------- UIVERSE LEELA CARDS (exact copy) -------- */
-.leela-parent {
-  width: 290px;
-  height: 300px;
-  perspective: 1000px;
-  margin: auto;
-}
+/* (same as before, omitted for brevity but present in script) */
 
-.leela-card {
-  height: 100%;
-  border-radius: 50px;
-  background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
-  transition: all 0.5s ease-in-out;
-  transform-style: preserve-3d;
-  box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+/* -------- ORANGE GLIMPSES CARD (Uiverse by MuhammadHasann, adapted) -------- */
+.glimpses-card {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(30, 100%, 50%); /* orange */
+
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 19rem;
+  background-color: hsla(240, 15%, 9%, 1);
+  background-image: radial-gradient(
+      at 88% 40%,
+      hsla(240, 15%, 9%, 1) 0px,
+      transparent 85%
+    ),
+    radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, hsla(30, 100%, 50%, 1) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, hsla(30, 100%, 70%, 1) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, hsla(30, 100%, 60%, 1) 0px, transparent 85%);
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
 }
 
-.leela-glass {
-  transform-style: preserve-3d;
+.glimpses-card .glimpses-card__border {
+  overflow: hidden;
+  pointer-events: none;
   position: absolute;
-  inset: 8px;
-  border-radius: 55px;
-  border-top-right-radius: 100%;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
-  transform: translate3d(0px, 0px, 25px);
-  border-left: 1px solid white;
-  border-bottom: 1px solid white;
-  transition: all 0.5s ease-in-out;
+  z-index: -10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: linear-gradient(
+    0deg,
+    hsl(0, 0%, 100%) -50%,
+    hsl(0, 0%, 40%) 100%
+  );
+  border-radius: 1rem;
 }
 
-.leela-content {
-  padding: 100px 60px 0px 30px;
-  transform: translate3d(0, 0, 26px);
+.glimpses-card .glimpses-card__border::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%), rotate(0deg);
+  transform-origin: left;
+  width: 200%;
+  height: 10rem;
+  background-image: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsl(30, 95%, 60%) 40%,
+    hsl(30, 95%, 60%) 60%,
+    hsla(0, 0%, 40%, 0) 100%
+  );
+  animation: rotate 8s linear infinite;
 }
 
-.leela-content .leela-title {
-  display: block;
-  color: #00894d;
-  font-weight: 900;
-  font-size: 20px;
+@keyframes rotate {
+  to { transform: rotate(360deg); }
 }
 
-.leela-content .leela-text {
-  display: block;
-  color: rgba(0, 137, 78, 0.7647058824);
-  font-size: 15px;
-  margin-top: 20px;
+.glimpses-card .glimpses-card_title__container .glimpses-card_title {
+  font-size: 1rem;
+  color: var(--white);
 }
 
-.leela-bottom {
-  padding: 10px 12px;
-  transform-style: preserve-3d;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+.glimpses-card .glimpses-card_title__container .glimpses-card_paragraph {
+  margin-top: 0.25rem;
+  width: 65%;
+  font-size: 0.5rem;
+  color: var(--paragraph);
+}
+
+.glimpses-card .glimpses-line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--line);
+  border: none;
+}
+
+.glimpses-card .glimpses-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.glimpses-card .glimpses-card__list .glimpses-card__list_item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  transform: translate3d(0, 0, 26px);
+  gap: 0.5rem;
 }
 
-.leela-bottom .leela-view-more {
+.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-check {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 40%;
-  justify-content: flex-end;
-  transition: all 0.2s ease-in-out;
-}
-
-.leela-bottom .leela-view-more:hover {
-  transform: translate3d(0, 0, 10px);
-}
-
-.leela-bottom .leela-view-more .leela-view-more-button {
-  background: none;
-  border: none;
-  color: #00c37b;
-  font-weight: bolder;
-  font-size: 12px;
-}
-
-.leela-bottom .leela-view-more .leela-svg {
-  fill: none;
-  stroke: #00c37b;
-  stroke-width: 3px;
-  max-height: 15px;
-}
-
-.leela-bottom .leela-social-buttons-container {
-  display: flex;
-  gap: 10px;
-  transform-style: preserve-3d;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button {
-  width: 30px;
-  aspect-ratio: 1;
-  padding: 5px;
-  background: rgb(255, 255, 255);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--primary);
   border-radius: 50%;
-  border: none;
-  display: grid;
-  place-content: center;
-  box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
 }
 
-.leela-bottom .leela-social-buttons-container .leela-social-button:first-child {
-  transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-check .glimpses-check_svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: var(--black);
 }
 
-.leela-bottom .leela-social-buttons-container .leela-social-button:nth-child(2) {
-  transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+.glimpses-card .glimpses-card__list .glimpses-card__list_item .glimpses-list_text {
+  font-size: 0.75rem;
+  color: var(--white);
 }
 
-.leela-bottom .leela-social-buttons-container .leela-social-button:nth-child(3) {
-  transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button .leela-svg {
-  width: 15px;
-  fill: #00894d;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:hover {
-  background: black;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:hover .leela-svg {
-  fill: white;
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:active {
-  background: rgb(255, 234, 0);
-}
-
-.leela-bottom .leela-social-buttons-container .leela-social-button:active .leela-svg {
-  fill: black;
-}
-
-.leela-logo {
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform-style: preserve-3d;
-}
-
-.leela-logo .leela-circle {
-  display: block;
-  position: absolute;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  top: 0;
-  right: 0;
-  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
-  backdrop-filter: blur(5px);
-  background: rgba(0, 249, 203, 0.2);
-  transition: all 0.5s ease-in-out;
-}
-
-.leela-logo .leela-circle1 {
-  width: 170px;
-  transform: translate3d(0, 0, 20px);
-  top: 8px;
-  right: 8px;
-}
-
-.leela-logo .leela-circle2 {
-  width: 140px;
-  transform: translate3d(0, 0, 40px);
-  top: 10px;
-  right: 10px;
-  backdrop-filter: blur(1px);
-  transition-delay: 0.4s;
-}
-
-.leela-logo .leela-circle3 {
-  width: 110px;
-  transform: translate3d(0, 0, 60px);
-  top: 17px;
-  right: 17px;
-  transition-delay: 0.8s;
-}
-
-.leela-logo .leela-circle4 {
-  width: 80px;
-  transform: translate3d(0, 0, 80px);
-  top: 23px;
-  right: 23px;
-  transition-delay: 1.2s;
-}
-
-.leela-logo .leela-circle5 {
-  width: 50px;
-  transform: translate3d(0, 0, 100px);
-  top: 30px;
-  right: 30px;
-  display: grid;
-  place-content: center;
-  transition-delay: 1.6s;
-}
-
-.leela-logo .leela-circle5 .leela-svg {
-  width: 20px;
-  fill: white;
-}
-
-/* Hover effects */
-.leela-parent:hover .leela-card {
-  transform: rotate3d(1, 1, 0, 30deg);
-  box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
-}
-
-.leela-parent:hover .leela-card .leela-bottom .leela-social-buttons-container .leela-social-button {
-  transform: translate3d(0, 0, 50px);
-  box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle2 {
-  transform: translate3d(0, 0, 60px);
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle3 {
-  transform: translate3d(0, 0, 80px);
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle4 {
-  transform: translate3d(0, 0, 100px);
-}
-
-.leela-parent:hover .leela-card .leela-logo .leela-circle5 {
-  transform: translate3d(0, 0, 120px);
+.glimpses-card .glimpses-button {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 100%;
+  background-image: linear-gradient(
+    0deg,
+    hsl(30, 100%, 50%) 0%,
+    hsl(30, 100%, 70%) 100%
+  );
+  font-size: 0.75rem;
+  color: var(--white);
+  border: 0;
+  border-radius: 9999px;
+  box-shadow: inset 0 -2px 25px -4px var(--white);
 }
 EOF
-log "Global CSS written (with Uiverse card styles)"
+log "Global CSS written (with orange Glimpses cards)"
 
 # ---------- Root Layout (no gap) ----------
 cat <<'EOF' > src/app/layout.tsx
@@ -723,7 +635,7 @@ export default function Footer() {
   );
 }
 FOOTEREOF
-log "Golden footer with exact Uiverse social cards created"
+log "Golden footer created"
 
 # ---------- ZODIAC WHEEL (3D) ----------
 cat <<'ZODIACEOF' > src/components/ZodiacWheel.tsx
@@ -765,102 +677,65 @@ export default function ZodiacWheel() {
 }
 ZODIACEOF
 
-# ---------- NEW LeelaCard component (Uiverse style) ----------
-cat <<'LEELACARD' > src/components/LeelaCard.tsx
+# ---------- NEW: GlimpsesCard component (orange Uiverse card) ----------
+cat <<'GLIMPSES' > src/components/GlimpsesCard.tsx
 import Link from 'next/link';
 
 interface Props {
-  slug: string;
   title: string;
   description: string;
+  items: string[];
+  buttonText: string;
+  buttonLink: string;
 }
 
-export default function LeelaCard({ slug, title, description }: Props) {
+export default function GlimpsesCard({ title, description, items, buttonText, buttonLink }: Props) {
   return (
-    <div className="leela-parent">
-      <div className="leela-card">
-        {/* Logo with circles */}
-        <div className="leela-logo">
-          <span className="leela-circle leela-circle1"></span>
-          <span className="leela-circle leela-circle2"></span>
-          <span className="leela-circle leela-circle3"></span>
-          <span className="leela-circle leela-circle4"></span>
-          <span className="leela-circle leela-circle5">
-            {/* Simple OM symbol in SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.667 31.69" className="leela-svg">
-              <path
-                id="Path_6"
-                data-name="Path 6"
-                d="M12.827,1.628A1.561,1.561,0,0,1,14.31,0h2.964a1.561,1.561,0,0,1,1.483,1.628v11.9a9.252,9.252,0,0,1-2.432,6.852q-2.432,2.409-6.963,2.409T2.4,20.452Q0,18.094,0,13.669V1.628A1.561,1.561,0,0,1,1.483,0h2.98A1.561,1.561,0,0,1,5.947,1.628V13.191a5.635,5.635,0,0,0,.85,3.451,3.153,3.153,0,0,0,2.632,1.094,3.032,3.032,0,0,0,2.582-1.076,5.836,5.836,0,0,0,.816-3.486Z"
-                transform="translate(0 0)"
-              />
-              <path
-                id="Path_7"
-                data-name="Path 7"
-                d="M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z"
-                transform="translate(-45.91 0)"
-              />
-              <path
-                id="Path_8"
-                data-name="Path 8"
-                d="M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z"
-                transform="translate(0 -51.963)"
-              />
-            </svg>
-          </span>
-        </div>
-
-        {/* Glass effect */}
-        <div className="leela-glass"></div>
-
-        {/* Content */}
-        <div className="leela-content">
-          <span className="leela-title">{title}</span>
-          <span className="leela-text">{description}</span>
-        </div>
-
-        {/* Bottom: social buttons + view more */}
-        <div className="leela-bottom">
-          <div className="leela-social-buttons-container">
-            <button className="leela-social-button" aria-label="Share">
-              <svg viewBox="0 0 24 24" className="leela-svg">
-                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
-              </svg>
-            </button>
-            <button className="leela-social-button" aria-label="Like">
-              <svg viewBox="0 0 24 24" className="leela-svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              </svg>
-            </button>
-            <button className="leela-social-button" aria-label="Bookmark">
-              <svg viewBox="0 0 24 24" className="leela-svg">
-                <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z" />
-              </svg>
-            </button>
-          </div>
-          <div className="leela-view-more">
-            <Link href={`/stories/${slug}`} className="leela-view-more-button">
-              View more
-            </Link>
-            <svg className="leela-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m6 9 6 6 6-6"></path>
-            </svg>
-          </div>
-        </div>
+    <div className="glimpses-card">
+      <div className="glimpses-card__border"></div>
+      <div className="glimpses-card_title__container">
+        <span className="glimpses-card_title">{title}</span>
+        <p className="glimpses-card_paragraph">{description}</p>
       </div>
+      <hr className="glimpses-line" />
+      <ul className="glimpses-card__list">
+        {items.map((item, i) => (
+          <li key={i} className="glimpses-card__list_item">
+            <span className="glimpses-check">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="glimpses-check_svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+            <span className="glimpses-list_text">{item}</span>
+          </li>
+        ))}
+      </ul>
+      <Link href={buttonLink} className="glimpses-button text-center">
+        {buttonText}
+      </Link>
     </div>
   );
 }
-LEELACARD
-log "Uiverse LeelaCard component created"
+GLIMPSES
+log "Orange GlimpsesCard component created"
 
-# ---------- 20-SECTION HOMEPAGE with layered hero + LeelaCards ----------
+# ---------- 20-SECTION HOMEPAGE with updated Glimpses section ----------
 cat <<'HOMEPAGE' > src/app/page.tsx
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ZodiacWheel from '@/components/ZodiacWheel';
 import LeelaCard from '@/components/LeelaCard';
+import GlimpsesCard from '@/components/GlimpsesCard';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -997,15 +872,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11. Gallery */}
+      {/* 11. Glimpses of Divinity – Uiverse Cards */}
       <section className="py-16 px-4 max-w-6xl mx-auto">
         <h2 className="text-3xl font-serif text-sacred-red text-center mb-8">Glimpses of Divinity</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1,2,3,4].map(i => (
-            <div key={i} className="relative h-48 rounded-xl overflow-hidden">
-              <Image src={`/assets/images/gallery-${i}.webp`} alt={`Gallery ${i}`} fill className="object-cover" sizes="200px" />
-            </div>
-          ))}
+        <div className="flex flex-wrap justify-center gap-8">
+          <GlimpsesCard
+            title="Ashram Services"
+            description="Experience the divine offerings of Kainchi Dham"
+            items={["Daily Aarti", "Prasad Distribution", "Langar Seva", "Bhajan Sandhya", "Satsang with Saints"]}
+            buttonText="Explore Darshan"
+            buttonLink="/darshan"
+          />
+          <GlimpsesCard
+            title="Temple Timings"
+            description="Plan your visit to receive Babaji's blessings"
+            items={["Morning Aarti: 6:00 AM", "Evening Aarti: 6:00 PM", "Temple Open: 5 AM - 9 PM", "Special Pooja on Request", "Meditation Hall Access"]}
+            buttonText="View Full Schedule"
+            buttonLink="/darshan"
+          />
+          <GlimpsesCard
+            title="Online Satsang"
+            description="Connect with the ashram from anywhere in the world"
+            items={["Live Streaming", "Daily Quotes", "Virtual Pooja", "E-Library", "Community Forum"]}
+            buttonText="Join Satsang"
+            buttonLink="/bhajans"
+          />
         </div>
       </section>
 
@@ -1426,12 +1317,12 @@ jobs:
 GH
 
 # ---------- Finalize ----------
-git init && git add . && git commit -m "🌺 Divine ashram with Uiverse Leela cards"
+git init && git add . && git commit -m "🌺 Digital ashram complete – orange Glimpses cards"
 npm install --legacy-peer-deps
 
 echo ""
-echo "🌺✨ Shri Neem Karori Baba Sansthan is ready – Uiverse leela cards, layered hero, zero errors!"
+echo "🌺✨ Shri Neem Karori Baba Sansthan is ready!"
 echo "   Run: npm run dev"
-echo "   Build: npm run build   (will succeed cleanly)"
+echo "   Build: npm run build   (zero errors)"
 echo "   Add GROQ_API_KEY to GitHub secrets for AI horoscope."
 echo "Jai Baba! Ram Ram."

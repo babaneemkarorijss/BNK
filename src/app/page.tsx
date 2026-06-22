@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ZodiacWheel from '@/components/ZodiacWheel';
 import LeelaCard from '@/components/LeelaCard';
+import GlimpsesCard from '@/components/GlimpsesCard';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -139,15 +140,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11. Gallery */}
+      {/* 11. Glimpses of Divinity – Uiverse Cards */}
       <section className="py-16 px-4 max-w-6xl mx-auto">
         <h2 className="text-3xl font-serif text-sacred-red text-center mb-8">Glimpses of Divinity</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1,2,3,4].map(i => (
-            <div key={i} className="relative h-48 rounded-xl overflow-hidden">
-              <Image src={`/assets/images/gallery-${i}.webp`} alt={`Gallery ${i}`} fill className="object-cover" sizes="200px" />
-            </div>
-          ))}
+        <div className="flex flex-wrap justify-center gap-8">
+          <GlimpsesCard
+            title="Ashram Services"
+            description="Experience the divine offerings of Kainchi Dham"
+            items={["Daily Aarti", "Prasad Distribution", "Langar Seva", "Bhajan Sandhya", "Satsang with Saints"]}
+            buttonText="Explore Darshan"
+            buttonLink="/darshan"
+          />
+          <GlimpsesCard
+            title="Temple Timings"
+            description="Plan your visit to receive Babaji's blessings"
+            items={["Morning Aarti: 6:00 AM", "Evening Aarti: 6:00 PM", "Temple Open: 5 AM - 9 PM", "Special Pooja on Request", "Meditation Hall Access"]}
+            buttonText="View Full Schedule"
+            buttonLink="/darshan"
+          />
+          <GlimpsesCard
+            title="Online Satsang"
+            description="Connect with the ashram from anywhere in the world"
+            items={["Live Streaming", "Daily Quotes", "Virtual Pooja", "E-Library", "Community Forum"]}
+            buttonText="Join Satsang"
+            buttonLink="/bhajans"
+          />
         </div>
       </section>
 
