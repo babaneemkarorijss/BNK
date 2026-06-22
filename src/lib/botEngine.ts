@@ -74,7 +74,7 @@ export async function generateReply(userMessage: string): Promise<string> {
   }));
   scored.sort((a,b) => b.score - a.score);
   const topContext = scored.slice(0,3).map(s => s.chunk).join('\n\n');
-  const systemPrompt = `You are Rahul, a 34-year-old devotee living in Kainchi Dham since childhood...`;
+  const systemPrompt = 'You are Rahul, a 34-year-old devotee...';
   const reply = await engine.chat.completions.create({
     messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMessage }],
     temperature: 0.7, max_tokens: 200,

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* 1. Hero (full-screen, no gap) */}
+      {/* 1. Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <Image src="/assets/images/babaji-hero.webp" alt="Neem Karori Baba" fill priority className="object-cover opacity-90" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-midnight-devotion/40 to-transparent" />
@@ -22,16 +22,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Introduction to Babaji */}
+      {/* 2. Introduction */}
       <section className="py-16 px-4 max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-serif text-sacred-red mb-6">Who is Neem Karori Baba?</h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          Maharaj-ji, lovingly called Babaji, was a saint of the Himalayan foothills. He taught the world that the highest form of worship is love. His presence dissolved all boundaries, and his miracles continue to inspire millions.
-        </p>
+        <p className="text-lg text-gray-700 leading-relaxed">Maharaj-ji, lovingly called Babaji, was a saint of the Himalayan foothills. He taught the world that the highest form of worship is love.</p>
         <Link href="/about" className="text-divine-saffron font-semibold mt-4 inline-block">Learn more →</Link>
       </section>
 
-      {/* 3. Daily Horoscope Preview + Zodiac Wheel */}
+      {/* 3. Daily Horoscope + Zodiac Wheel */}
       <section className="py-16 px-4 bg-white/50">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-sacred-red mb-8">Today&apos;s Vedic Horoscope</h2>
@@ -40,14 +38,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Core Teachings (cards) */}
+      {/* 4. Core Teachings */}
       <section className="py-16 px-4 max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-serif text-sacred-red text-center mb-12">Babaji&apos;s Teachings</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { title: 'Love Everyone', desc: 'Love is the strongest force in the universe. Love all beings unconditionally.' },
-            { title: 'Serve Everyone', desc: 'Selfless service is the path to God. Feed the hungry, help the needy.' },
-            { title: 'Remember God', desc: 'Keep the name of Ram in your heart always. Chant Ram Ram and be free.' },
+            { title: 'Love Everyone', desc: 'Love is the strongest force in the universe.' },
+            { title: 'Serve Everyone', desc: 'Selfless service is the path to God.' },
+            { title: 'Remember God', desc: 'Keep the name of Ram in your heart always.' },
           ].map(t => (
             <div key={t.title} className="divine-card text-center">
               <h3 className="text-2xl font-serif mb-4">{t.title}</h3>
@@ -80,7 +78,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Live Darshan Invitation */}
+      {/* 6. Live Darshan */}
       <section className="py-16 px-4 max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-serif text-sacred-red mb-4">Live Darshan from Kainchi Dham</h2>
         <p className="text-gray-600 mb-6">Join the daily aarti from the sacred ashram, wherever you are.</p>
@@ -113,9 +111,7 @@ export default function HomePage() {
 
       {/* 9. Quote */}
       <section className="py-16 px-4 bg-sacred-red/5 text-center">
-        <blockquote className="text-2xl font-serif italic text-sacred-red max-w-2xl mx-auto">
-          &ldquo;The highest form of worship is love.&rdquo;
-        </blockquote>
+        <blockquote className="text-2xl font-serif italic text-sacred-red max-w-2xl mx-auto">“The highest form of worship is love.”</blockquote>
         <p className="mt-4 text-gray-600">- Shri Neem Karori Baba</p>
       </section>
 
@@ -168,7 +164,7 @@ export default function HomePage() {
         <Link href="/contact" className="darshan-btn">Contact Ashram</Link>
       </section>
 
-      {/* 15. Final Quote */}
+      {/* 15. Final Golden Quote */}
       <section className="py-16 px-4 bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark text-white text-center">
         <h2 className="text-3xl font-serif mb-4">Ram Ram</h2>
         <p className="text-xl">May Babaji&apos;s love fill your heart today.</p>

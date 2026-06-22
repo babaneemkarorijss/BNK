@@ -4,13 +4,11 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-golden-dark via-divine-saffron to-golden-dark text-midnight-devotion pt-16 pb-8 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand */}
         <div>
           <h3 className="font-serif text-2xl font-bold mb-4">Shri Neem Karori Baba Sansthan</h3>
           <p className="italic text-midnight-devotion/80">“Love everyone, serve everyone, remember God.”</p>
         </div>
 
-        {/* Explore links */}
         <div>
           <h4 className="font-serif text-lg font-bold mb-4">Explore</h4>
           <ul className="space-y-2">
@@ -27,7 +25,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact info */}
         <div>
           <h4 className="font-serif text-lg font-bold mb-4">Contact Ashram</h4>
           <p>Kainchi Dham, Nainital<br />Uttarakhand, India</p>
@@ -35,7 +32,6 @@ export default function Footer() {
           <p>Email: info@neemkaroribaba.org</p>
         </div>
 
-        {/* Social cards (EXACT Uiverse code) */}
         <div>
           <h4 className="font-serif text-lg font-bold mb-4">Follow Us</h4>
           <div className="main">

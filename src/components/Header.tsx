@@ -52,7 +52,6 @@ export default function Header() {
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Hamburger on left */}
         <div className="w-12">
           <input type="checkbox" id="menu-checkbox" checked={open} onChange={e => setOpen(e.target.checked)} />
           <label className="toggle" htmlFor="menu-checkbox">
@@ -62,7 +61,6 @@ export default function Header() {
           </label>
         </div>
 
-        {/* Centered Logo */}
         <Link href="/" className="flex-1 text-center">
           <span className={`font-serif text-2xl md:text-3xl font-bold tracking-wider ${
             scrolled ? 'text-midnight-devotion' : 'text-white drop-shadow-lg'
@@ -71,11 +69,9 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Symmetry */}
         <div className="w-12" />
       </div>
 
-      {/* Dropdown menu (golden background) */}
       {open && (
         <div className="absolute top-full left-0 right-0 bg-gradient-to-b from-golden-dark/95 to-divine-saffron/95 backdrop-blur-md border-t border-white/20 shadow-2xl">
           <nav className="max-w-3xl mx-auto py-6 px-4 flex flex-wrap justify-center gap-4">
