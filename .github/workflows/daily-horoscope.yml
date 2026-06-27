@@ -1,23 +1,45 @@
-name: Daily Horoscope
+name: Daily Horoscope Generation
+
 on:
   schedule:
-    - cron: '0 20 * * *'
+    - cron: '0 20 * * *'   # 1:30 AM IST
   workflow_dispatch:
+
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
-      - run: npm ci
-      - name: Generate
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Horoscopes (Groq AI)
+        id: groq
+        continue-on-error: true
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: node scripts/generate-horoscope.mjs
-      - name: Commit
+
+      - name: Generate Fallback Horoscopes (if Groq failed)
+        if: steps.groq.outcome == 'failure'
+        run: node scripts/fallback-horoscope.mjs
+
+      - name: Verify output file exists
+        run: test -f public/data/daily-horoscope.json || exit 1
+
+      - name: Commit and Push
         run: |
           git config user.name "Babaji-Bot"
           git config user.email "bot@neemkaroribaba.org"
           git add public/data/daily-horoscope.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🌅 Daily Horoscope $(date +'%Y-%m-%d')" && git push)
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "🌅 Daily Horoscope $(date +'%Y-%m-%d')"
+            git push
+          fi

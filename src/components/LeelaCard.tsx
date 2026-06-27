@@ -3,10 +3,10 @@ import Link from 'next/link';
 interface Props {
   slug: string;
   title: string;
-  subtitle: string;
+  description: string;   /* changed from subtitle */
 }
 
-export default function LeelaCard({ slug, title, subtitle }: Props) {
+export default function LeelaCard({ slug, title, description }: Props) {
   return (
     <div className="leela-card-container">
       <div className="leela-title-card">
@@ -17,7 +17,7 @@ export default function LeelaCard({ slug, title, subtitle }: Props) {
       </div>
       <div className="leela-card-content">
         <p className="leela-card-title">{title}</p>
-        <p className="leela-card-subtitle">{subtitle}</p>
+        <p className="leela-card-subtitle">{description}</p>
         <Link href={`/stories/${slug}`} className="leela-card-btn">Read the Leela</Link>
       </div>
     </div>

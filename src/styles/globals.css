@@ -88,3 +88,323 @@ h1,h2,h3,h4 { @apply font-serif; }
 .leela-card-btn { background: linear-gradient(4deg, #f59b4a, #f87c2f 40%, #faaa78 65%, #ff934c 100%); padding: 10px; border: none; width: 100%; border-radius: 8px; color: white; font-size: 14px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.3s ease-in-out; cursor: pointer; box-shadow: inset 0 2px 4px rgba(255,255,255,0.6); }
 .leela-card-btn:hover { color: #ffffff; text-shadow: 0 0 8px #fff; transform: scale(1.03); }
 .leela-card-btn:active { transform: scale(1); }
+
+/* ----- Real‑Time Clock Card (Uiverse 3D) ----- */
+.parent-clock {
+  width: 340px;
+  padding: 20px;
+  perspective: 1000px;
+  margin: 0 auto 2rem auto;
+}
+
+.card-clock {
+  padding-top: 50px;
+  border: 3px solid rgb(255, 255, 255);
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg,#0000 18.75%,#f3f3f3 0 31.25%,#0000 0),
+      repeating-linear-gradient(45deg,#f3f3f3 -6.25% 6.25%,#ffffff 0 18.75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+.card-clock:hover {
+  background-position: -100px 100px, -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.content-box-clock {
+  background: rgba(4, 193, 250, 0.732);
+  transition: all 0.5s ease-in-out;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+}
+
+.card-title-clock {
+  display: inline-block;
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 50px);
+  margin-bottom: 1rem;
+}
+
+.time-display {
+  margin: 0.5rem 0;
+}
+
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: monospace;
+}
+
+.time-row-small {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-family: monospace;
+  margin-top: 0.3rem;
+}
+
+.time-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.time-label {
+  font-size: 0.8rem;
+  color: #e0f7fa;
+  font-weight: 600;
+}
+
+.time-separator {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.time-value-small {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e0f7fa;
+}
+
+.time-label-small {
+  font-size: 0.6rem;
+  color: #b2ebf2;
+}
+
+.time-separator-small {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.card-content-clock {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f2f2f2;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+  font-style: italic;
+}
+
+.date-box-clock {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 60px;
+  width: 60px;
+  background: white;
+  border: 1px solid rgb(7, 185, 255);
+  padding: 10px;
+  transform: translate3d(0px, 0px, 80px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-box-clock .month-clock {
+  color: rgb(4, 193, 250);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.date-box-clock .date-clock {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(4, 193, 250);
+}
+
+/* ----- Zodiac Animated Card (Uiverse) ----- */
+.zodiac-card-uiverse {
+  width: 150px;
+  height: 200px;
+  background: rgb(223, 225, 235);
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow:
+    inset 0px 56px 40px #2224,
+    inset 0px -56px 40px #fff,
+    1px 1px 2px #fff,
+    -1px -1px 2px #4442;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.zodiac-card-uiverse:hover {
+  transform: scale(1.05);
+}
+
+.zodiac-card-uiverse .content-zodiac {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300%;
+  height: 100%;
+  transform: translateX(0%);
+  animation: anim 6s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.zodiac-card-uiverse .word-zodiac {
+  width: 50%;
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 9px 8px 3px #4443;
+}
+
+@keyframes anim {
+  0% { transform: translateX(0%); }
+  20% { transform: translateX(0%); }
+  30% { transform: translateX(-33.33%); }
+  70% { transform: translateX(-33.33%); }
+  80% { transform: translateX(-66.66%); }
+  100% { transform: translateX(-66.66%); }
+}
+
+/* GlimpsesCard (orange Uiverse) – required for homepage */
+.glimpses-card {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(30, 100%, 50%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 19rem;
+  background-color: hsla(240, 15%, 9%, 1);
+  background-image: radial-gradient(at 88% 40%, hsla(240,15%,9%,1) 0px, transparent 85%),
+    radial-gradient(at 49% 30%, hsla(240,15%,9%,1) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, hsla(240,15%,9%,1) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, hsla(30,100%,50%,1) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, hsla(30,100%,70%,1) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, hsla(30,100%,60%,1) 0px, transparent 85%);
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px rgba(255,255,255,0.25) inset;
+}
+.glimpses-card__border {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: -10;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: linear-gradient(0deg, hsl(0,0%,100%) -50%, hsl(0,0%,40%) 100%);
+  border-radius: 1rem;
+}
+.glimpses-card__border::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  z-index: 200;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%) rotate(0deg);
+  transform-origin: left;
+  width: 200%;
+  height: 10rem;
+  background-image: linear-gradient(0deg, hsla(0,0%,100%,0) 0%, hsl(30,95%,60%) 40%, hsl(30,95%,60%) 60%, hsla(0,0%,40%,0) 100%);
+  animation: rotate 8s linear infinite;
+}
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+.glimpses-card_title__container .glimpses-card_title {
+  font-size: 1rem;
+  color: var(--white);
+}
+.glimpses-card_paragraph {
+  margin-top: 0.25rem;
+  width: 65%;
+  font-size: 0.5rem;
+  color: var(--paragraph);
+}
+.glimpses-line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--line);
+  border: none;
+}
+.glimpses-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.glimpses-card__list_item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.glimpses-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+.glimpses-check_svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: var(--black);
+}
+.glimpses-list_text {
+  font-size: 0.75rem;
+  color: var(--white);
+}
+.glimpses-button {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 100%;
+  background-image: linear-gradient(0deg, hsl(30,100%,50%) 0%, hsl(30,100%,70%) 100%);
+  font-size: 0.75rem;
+  color: var(--white);
+  border: 0;
+  border-radius: 9999px;
+  box-shadow: inset 0 -2px 25px -4px var(--white);
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* -------- ANIMATED GRADIENT TEXT LOGO -------- */
+.logo-text {
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #ff6b6b);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientLoop 4s ease-in-out infinite;
+}
+
+.logo-text-scrolled {
+  background: linear-gradient(90deg, #B32B2B, #1B0A2A, #F4A52D, #B32B2B);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientLoop 4s ease-in-out infinite;
+}
+
+@keyframes gradientLoop {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

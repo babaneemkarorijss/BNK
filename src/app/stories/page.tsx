@@ -8,16 +8,16 @@ export const metadata: Metadata = {
 };
 
 const leelas = [
-  { slug: 'removal-of-doubt', title: 'Removal of Doubt', subtitle: 'Baba summons a skeptic' },
-  { slug: 'dumb-child-speaks', title: 'The Dumb Child Speaks', subtitle: 'A mute boy&rsquo;s first word' },
-  { slug: 'bullets-absorbed', title: 'Bullets Absorbed by the Blanket', subtitle: 'Saving the surgeon&rsquo;s son' },
-  { slug: 'change-the-weather', title: 'I Shall Change the Weather', subtitle: 'The June wedding miracle' },
-  { slug: 'gift-of-life', title: 'Gift of Life to a Widow&rsquo;s Son', subtitle: 'Snakebite resurrection' },
-  { slug: 'birth-of-badrivishal', title: 'Birth of Badrivishal', subtitle: 'A dead newborn resurrected' },
-  { slug: 'american-skeptic', title: 'The American Skeptic', subtitle: 'The rolled apple' },
-  { slug: 'baba-drove-the-car', title: 'When Baba Drove the Car', subtitle: 'Driver asleep, Baba at the wheel' },
-  { slug: 'old-laborer-khantia', title: 'Old Laborer Khantia', subtitle: 'Promise of salvation' },
-  { slug: 'mahasamadhi', title: 'The Mahasamadhi Lila', subtitle: 'Final departure &amp; the storm' },
+  { slug: 'removal-of-doubt', title: 'Removal of Doubt', description: 'Baba summons a skeptic' },
+  { slug: 'dumb-child-speaks', title: 'The Dumb Child Speaks', description: 'A mute boy&rsquo;s first word' },
+  { slug: 'bullets-absorbed', title: 'Bullets Absorbed by the Blanket', description: 'Saving the surgeon&rsquo;s son' },
+  { slug: 'change-the-weather', title: 'I Shall Change the Weather', description: 'The June wedding miracle' },
+  { slug: 'gift-of-life', title: 'Gift of Life to a Widow&rsquo;s Son', description: 'Snakebite resurrection' },
+  { slug: 'birth-of-badrivishal', title: 'Birth of Badrivishal', description: 'A dead newborn resurrected' },
+  { slug: 'american-skeptic', title: 'The American Skeptic', description: 'The rolled apple' },
+  { slug: 'baba-drove-the-car', title: 'When Baba Drove the Car', description: 'Driver asleep, Baba at the wheel' },
+  { slug: 'old-laborer-khantia', title: 'Old Laborer Khantia', description: 'Promise of salvation' },
+  { slug: 'mahasamadhi', title: 'The Mahasamadhi Lila', description: 'Final departure & the storm' },
 ];
 
 export default function StoriesPage() {
