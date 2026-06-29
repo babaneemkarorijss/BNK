@@ -2,7 +2,7 @@ name: Daily Horoscope Generation
 
 on:
   schedule:
-    - cron: '0 20 * * *'   # 1:30 AM IST
+    - cron: '0 20 * * *'   # 1:30 AM IST (20:00 UTC)
   workflow_dispatch:
 
 jobs:
@@ -36,8 +36,8 @@ jobs:
         run: |
           git config user.name "Babaji-Bot"
           git config user.email "bot@neemkaroribaba.org"
-          git add public/data/daily-horoscope.json
-          if git diff --quiet && git diff --staged --quiet; then
+          git add -f public/data/daily-horoscope.json
+          if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "🌅 Daily Horoscope $(date +'%Y-%m-%d')"
