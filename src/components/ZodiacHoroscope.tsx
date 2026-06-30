@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,14 +20,13 @@ interface HoroscopeData {
 interface FullData {
   date: string;
   moon_sign: string;
-  horoscopes: Record<string, HoroscopeData>;
+  horoscopes: Record<string, string | HoroscopeData>;
   lucky_color: string;
   lucky_number: number;
 }
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-// Map color names to hex codes
 const colorMap: Record<string, string> = {
   'Saffron': '#F4A52D',
   'Red': '#B32B2B',
@@ -42,11 +42,59 @@ const colorMap: Record<string, string> = {
   'Black': '#1B0A2A',
 };
 
+function getDayIndex(): number {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now.getTime() - start.getTime();
+  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+  return dayOfYear % 3;  // 0, 1, 2
+}
+
 export default function ZodiacHoroscope({ sign }: { sign: string }) {
   const { data, error, isLoading } = useSWR<FullData>('/data/daily-horoscope.json', fetcher, {
     revalidateOnFocus: false,
     dedupingInterval: 86400000,
   });
+
+  const [sections, setSections] = useState<Section[]>([]);
+  const [aiMessage, setAiMessage] = useState<string>('');
+
+  // Load fallback sections whenever data changes or sign changes
+  useEffect(() => {
+    const loadFallback = async () => {
+      const dayIndex = getDayIndex();
+      const fallbackUrl = `/data/fallback/day${dayIndex}.json`;
+      try {
+        const res = await fetch(fallbackUrl);
+        const fallbackData: any = await res.json();
+        const fallbackSign = fallbackData.horoscopes?.[sign];
+        if (fallbackSign && fallbackSign.sections) {
+          setSections(fallbackSign.sections);
+        }
+      } catch (e) {
+        console.warn('Fallback sections not available:', e);
+      }
+    };
+
+    if (data && data.horoscopes) {
+      const horoscope = data.horoscopes[sign];
+      if (typeof horoscope === 'object' && 'sections' in horoscope) {
+        // AI returned full sections – use them
+        setSections(horoscope.sections);
+        setAiMessage('');
+      } else if (typeof horoscope === 'string') {
+        // AI returned plain text – show as message, load sections from fallback
+        setAiMessage(horoscope);
+        loadFallback();
+      } else {
+        // No data for this sign – load fallback
+        loadFallback();
+      }
+    } else if (!isLoading) {
+      // No data yet – load fallback
+      loadFallback();
+    }
+  }, [data, sign, isLoading]);
 
   if (isLoading) {
     return (
@@ -56,7 +104,7 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
     );
   }
 
-  if (error || !data || !data.horoscopes || !data.horoscopes[sign]) {
+  if (error && sections.length === 0) {
     return (
       <div className="divine-card text-center py-12">
         <p className="text-xl font-serif text-sacred-red">Today&apos;s guidance is being prepared.</p>
@@ -65,16 +113,15 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
     );
   }
 
-  const horoscope = data.horoscopes[sign];
-  const sections = horoscope.sections || [];
   const signName = sign.charAt(0).toUpperCase() + sign.slice(1);
-  const luckyColorHex = colorMap[data.lucky_color] || data.lucky_color;
+  const luckyColorHex = data ? colorMap[data.lucky_color] || data.lucky_color : '#F4A52D';
+  const luckyNumber = data ? data.lucky_number : 0;
+  const moonSign = data?.moon_sign || '';
 
   return (
     <div className="space-y-12">
       {/* Lucky Colour & Number – 3D animated */}
       <div className="grid grid-cols-2 gap-6">
-        {/* Lucky Colour */}
         <div className="divine-card text-center p-6 relative overflow-hidden group hover:scale-105 transition-transform duration-500">
           <div className="absolute inset-0 opacity-10 rounded-2xl" style={{ backgroundColor: luckyColorHex }}></div>
           <h3 className="text-lg font-serif text-gray-500 mb-2">Lucky Colour</h3>
@@ -82,27 +129,34 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
             className="w-20 h-20 mx-auto rounded-full shadow-2xl animate-float border-4 border-white"
             style={{ backgroundColor: luckyColorHex }}
           ></div>
-          <p className="mt-2 font-semibold text-gray-700">{data.lucky_color}</p>
+          <p className="mt-2 font-semibold text-gray-700">{data?.lucky_color || 'Unknown'}</p>
         </div>
 
-        {/* Lucky Number */}
         <div className="divine-card text-center p-6 group hover:scale-105 transition-transform duration-500">
           <h3 className="text-lg font-serif text-gray-500 mb-2">Lucky Number</h3>
           <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-divine-saffron to-sacred-red shadow-2xl flex items-center justify-center animate-float">
-            <span className="text-4xl font-bold text-white">{data.lucky_number}</span>
+            <span className="text-4xl font-bold text-white">{luckyNumber}</span>
           </div>
           <p className="mt-2 text-sm text-gray-500">Your number for today</p>
         </div>
       </div>
 
-      {/* Header card */}
+      {/* AI Message (if any) */}
+      {aiMessage && (
+        <div className="divine-card text-center">
+          <p className="text-xl font-serif text-sacred-red italic">{aiMessage}</p>
+          <p className="text-xs text-gray-400 mt-2">Moon in {moonSign}</p>
+        </div>
+      )}
+
+      {/* Header */}
       <div className="divine-card text-center">
         <h2 className="text-3xl md:text-4xl font-serif text-sacred-red mb-4">{signName} Horoscope</h2>
-        <p className="text-gray-500">Moon in {horoscope.moonSign || data.moon_sign}</p>
+        <p className="text-gray-500">Moon in {moonSign}</p>
       </div>
 
       {/* Aspect cards */}
-      {sections.map((section, idx) => (
+      {sections.length > 0 && sections.map((section, idx) => (
         <div
           key={idx}
           className="divine-card overflow-hidden p-0 flex flex-col md:flex-row group hover:shadow-2xl transition-all duration-500"
@@ -140,6 +194,12 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
           </div>
         </div>
       ))}
+
+      {sections.length === 0 && !aiMessage && (
+        <div className="divine-card text-center py-12">
+          <p className="text-lg text-gray-500">Aaj ka guidance load ho raha hai… Ram Ram!</p>
+        </div>
+      )}
     </div>
   );
 }
