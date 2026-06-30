@@ -17,7 +17,7 @@ function getMoonSign(date) {
 const today = new Date();
 const istNow = new Date(today.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
 const dayOfYear = Math.floor((istNow - new Date(istNow.getFullYear(), 0, 0)) / 86400000);
-const dayIndex = dayOfYear % 7;   // 0-6 for 7 days
+const dayIndex = dayOfYear % 3;   // 0-6 for 7 days
 const moonSign = getMoonSign(istNow);
 
 // Pre-written fallback

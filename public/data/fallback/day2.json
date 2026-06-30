@@ -1,5 +1,5 @@
 {
-  "date": "2025-07-03",
+  "date": "2025-01-03",
   "moon_sign": "leo",
   "horoscopes": {
     "aries": {
@@ -7,50 +7,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your competitive spirit drives you to excel. A challenging quiz or test will bring out your best performance. You'll find yourself volunteering answers and impressing your instructors.",
-          "negative": "Impulsiveness may cause you to skip important instructions. Read questions carefully before answering. Overconfidence in a subject could lead to careless mistakes.",
+          "positive": "Your confidence in the classroom is magnetic. You'll excel in presentations and group leadership. Teachers will be impressed by your bold ideas.",
+          "negative": "Arrogance may prevent you from listening to others' valuable input. Stay open to collaboration.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Your passion and enthusiasm are magnetic. A spontaneous romantic adventure – perhaps a road trip or a surprise date – will bring you and your partner closer than ever.",
-          "negative": "A tendency to dominate conversations could make your partner feel unheard. Practise active listening. Jealousy over insignificant matters may create unnecessary drama.",
+          "positive": "Your passion and warmth ignite romance. A spontaneous adventure with your partner will create unforgettable memories.",
+          "negative": "A hot temper could spark an unnecessary argument. Pause and breathe before responding.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your bold ideas will grab management's attention. Don't hesitate to present that innovative proposal you've been perfecting. A competitor's setback could become your opportunity.",
-          "negative": "Office conflicts may arise if you push too hard. Diplomacy is key – win support rather than demanding it. Avoid making enemies in the pursuit of quick wins.",
+          "positive": "Take the initiative on a new project. Your boldness will be rewarded, and you may find yourself leading a key initiative.",
+          "negative": "Avoid clashing with authority figures. Diplomacy will serve you better than confrontation today.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your energy levels are soaring. High‑intensity workouts or competitive sports will be especially satisfying. Your head and face area feels strong and clear.",
-          "negative": "Watch out for headaches caused by overexertion or stress. Stay hydrated during physical activity. Minor cuts or burns may occur if you're careless.",
+          "positive": "Energy and vitality are at their peak. A high‑intensity workout or competitive sport will be especially satisfying.",
+          "negative": "Watch for headaches from overexertion. Stay hydrated and take rest periods.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A quick financial gain is possible through a side hustle or freelance work. Your courage to take calculated risks may pay off. An old debt may be repaid unexpectedly.",
-          "negative": "Impulse spending on gadgets or luxury items could drain your savings. Avoid high‑risk investments unless you can afford to lose. Read the fine print before signing anything.",
+          "positive": "A bold investment could yield quick returns. Your risk appetite is high, and luck is on your side.",
+          "negative": "Don't gamble what you can't afford to lose. Keep a safety net of savings.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your leadership at home is needed. A family decision that has been pending for months can finally be resolved under your guidance. Your enthusiasm inspires younger relatives.",
-          "negative": "Your fiery temper could ignite an argument over a trivial issue. Count to ten before responding. An elder may feel disrespected if you interrupt them frequently.",
+          "positive": "Your leadership at home is appreciated. Organise a family activity – everyone will follow your lead.",
+          "negative": "A power struggle with an elder could create tension. Show respect even when you disagree.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer red flowers and sindoor to Lord Hanuman on Tuesday. Wear a red coral bracelet for courage. Recite the Hanuman Chalisa with full devotion before starting any new venture.",
-          "negative": "If aggressive impulses or conflicts persist, an astrologer can recommend a Mars‑pacifying homa and a personalised mantra for your birth chart.",
+          "positive": "Offer water to the Sun at sunrise and recite the Aditya Hridayam Stotra. Wear a ruby for confidence.",
+          "negative": "If you feel blocked, an astrologer can suggest a Sun‑strengthening ritual.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -61,50 +61,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your steady perseverance brings rewards. A long‑term project or thesis is nearing successful completion. Your methodical approach will be praised by your supervisor.",
-          "negative": "Resistance to new ideas could blind you to better methods. Be open to constructive criticism. Stubbornness in group work may alienate your teammates.",
+          "positive": "Your steady progress is noticed. A teacher may offer extra support or a new learning opportunity.",
+          "negative": "Stubbornness may block you from accepting helpful criticism. Be open to feedback.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Sensual pleasures are heightened today. A romantic dinner at home, with music and candles, will create unforgettable intimacy. Your loyalty makes your partner feel secure.",
-          "negative": "Possessiveness might suffocate your relationship. Trust your partner's freedom. Financial disagreements could cast a shadow over an otherwise lovely day.",
+          "positive": "Your loyalty and dependability are deeply appreciated. A quiet evening at home with your partner will be blissful.",
+          "negative": "Possessiveness could cause unnecessary friction. Trust your partner's independence.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your financial acumen shines. You may identify cost‑saving measures that impress your superiors. A stable, slow‑growth investment strategy will prove its worth.",
-          "negative": "Change may be forced upon you – a new system or manager. Adapt gracefully; resistance will only hurt you. Avoid being too rigid in negotiations.",
+          "positive": "A financial project or budget review benefits from your meticulous touch. Your stability is an asset to the team.",
+          "negative": "Change may be forced upon you. Adapt gracefully rather than resisting.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your throat and neck area are strong. Singing, chanting, or even a heartfelt conversation will be therapeutic. Gentle neck stretches will enhance well‑being.",
-          "negative": "Overindulgence in sweets or rich foods could upset your digestion. Moderation is key. A sore throat may develop if you consume too many cold drinks.",
+          "positive": "Focus on throat and neck health. Gentle stretches and warm herbal teas will keep you comfortable.",
+          "negative": "Overindulgence in heavy foods could slow you down. Opt for lighter meals.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A property matter or real estate investment may yield profits. Your savings discipline is about to pay off. Consider opening a fixed deposit for long‑term security.",
-          "negative": "Avoid major purchases under pressure from salespeople. Take your time. Lending money to a friend without a written agreement could lead to loss.",
+          "positive": "A long‑held asset appreciates in value. Your patience with investments is about to pay off.",
+          "negative": "Avoid lending large sums without clear terms. Protect your financial well‑being.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your home is your sanctuary. A family meal or a movie night will strengthen bonds. Your spouse or parent may surprise you with a thoughtful, practical gift.",
-          "negative": "Stubbornness could cause a rift with an elder. Apologise even if you feel you're right – relationships matter more. Children may test your patience; stay calm.",
+          "positive": "Your role as the stable anchor is recognised. A family elder may seek your advice on a property matter.",
+          "negative": "Stubbornness over a minor household issue could cause a rift. Apologise quickly.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer white flowers and milk to Lord Shiva on Monday. Wear an emerald or green agate to enhance communication and attract prosperity.",
-          "negative": "If financial or family stability is threatened, a birth‑chart analysis can identify the specific planetary afflictions and prescribe strengthening remedies.",
+          "positive": "Offer white flowers to Lord Shiva. Wear an emerald for harmony and prosperity.",
+          "negative": "If financial stability feels threatened, an astrologer can prescribe specific pujas.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -115,50 +115,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your curiosity leads you to a fascinating new topic. Self‑study or online courses will be especially productive. You may discover a hidden talent for a language or a technical skill.",
-          "negative": "Information overload could scatter your focus. Prioritise one subject at a time. Gossip or idle chatter may distract you from your academic goals.",
+          "positive": "Your quick wit and versatility shine. You'll excel in debates, presentations, and any activity that requires fast thinking.",
+          "negative": "Avoid spreading yourself too thin. Focus on one subject at a time for deep understanding.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Your playful wit rekindles the spark in your relationship. A light‑hearted outing – perhaps a comedy show or a game night – will bring immense joy. Singles may connect over a shared hobby.",
-          "negative": "Flirtation may be misinterpreted as a serious advance. Be clear about your intentions. Inconsistency could make your partner feel insecure.",
+          "positive": "Your playful energy is infectious. A fun, light‑hearted outing with your partner will strengthen your bond.",
+          "negative": "Inconsistency may make your partner feel insecure. Be clear about your feelings and intentions.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your networking skills open an unexpected door. A casual conversation at a coffee shop could lead to a lucrative collaboration. Your adaptability makes you invaluable during a sudden change.",
-          "negative": "Avoid gossiping – it can damage your professional reputation. Taking on too many projects may lead to burnout. Learn to say no gracefully.",
+          "positive": "Networking opens doors. A casual conversation could lead to a promising collaboration or job offer.",
+          "negative": "Gossip can damage your professional image. Keep conversations positive and constructive.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your nervous energy is best channelled into creative pursuits or brisk walks. Your lungs and respiratory system are strong. Deep breathing exercises will enhance mental clarity.",
-          "negative": "Anxiety may manifest as restlessness or fidgeting. Short meditation breaks can help. Respiratory allergies might flare up; avoid dusty or polluted environments.",
+          "positive": "Your nervous energy finds a positive outlet in dancing, aerobics, or brisk walking. Mental clarity is enhanced.",
+          "negative": "Anxiety may cause restlessness. Try deep breathing or a short meditation to calm your mind.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A short‑term investment or a quick freelance gig may bring extra cash. Your communication skills could help you negotiate a better deal or land a new client.",
-          "negative": "Impulse purchases on apps or websites can quickly add up. Wait 24 hours before buying anything non‑essential. Avoid lending to unreliable acquaintances.",
+          "positive": "A side hustle or freelance gig brings extra income. Your communication skills help you negotiate a better rate.",
+          "negative": "Impulse online shopping could drain your wallet. Wait 24 hours before purchasing non‑essentials.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your humour and lightness bring joy to the household. A sibling or cousin may seek your advice on a personal matter. A short family trip or outing will be memorable.",
-          "negative": "Your restlessness may be misinterpreted as disinterest. Make an effort to be present during family conversations. Avoid gossiping about one relative to another.",
+          "positive": "Your humour brings joy to the household. A sibling or cousin may seek your advice on a personal matter.",
+          "negative": "Restlessness may be misinterpreted as disinterest. Be fully present during family time.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Recite the Gayatri Mantra 21 times at sunrise. Keep a piece of green tourmaline or emerald with you. Feeding cows with green grass on Wednesday brings Mercury's blessings.",
-          "negative": "If mental restlessness persists, an astrologer can suggest a Mercury‑pacifying puja and a specific mantra to calm your mind.",
+          "positive": "Recite the Gayatri Mantra 21 times at sunrise. Keep a green tourmaline with you for mental clarity.",
+          "negative": "If mental chaos persists, an astrologer can suggest a Mercury‑pacifying mantra and gemstone.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -169,50 +169,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your emotional connection to a subject deepens your understanding. History, psychology, or literature will be particularly absorbing. A mentor may offer heartfelt encouragement.",
-          "negative": "Over‑sensitivity to criticism could discourage you. Remember that feedback is meant to help, not hurt. Avoid taking academic competition personally.",
+          "positive": "Your emotional connection to your studies deepens your understanding. You'll find meaning in subjects that touch the heart.",
+          "negative": "Moodiness may affect concentration. Create a calm, nurturing study environment for yourself.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Your nurturing side draws your partner closer. A home‑cooked meal, a warm embrace, and genuine listening will create a sanctuary of love. Singles may find comfort in a trusted friend.",
-          "negative": "Moodiness could push your partner away. Communicate rather than retreat into your shell. Clinginess may suffocate the relationship; allow healthy space.",
+          "positive": "Your nurturing love creates a safe haven for your partner. A home‑cooked meal and a heartfelt talk will deepen your bond.",
+          "negative": "Clinginess could push your partner away. Give them space and trust their affection.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your empathy is a professional asset. A colleague facing personal challenges will appreciate your support, strengthening team bonds. A role in caregiving or HR may open up.",
-          "negative": "Taking on others' emotional burdens can drain your energy. Set boundaries. Fear of confrontation may prevent you from asserting your worth; speak up.",
+          "positive": "Your empathy is a professional strength. Supporting a colleague will strengthen team bonds and your own reputation.",
+          "negative": "Don't take on others' emotional baggage. Set clear boundaries to protect your own well‑being.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your stomach and digestive system respond well to nurturing, home‑cooked meals. A warm bath with Epsom salts will soothe your nerves. Emotional healing is on the horizon.",
-          "negative": "Stress eating could upset your stomach. Opt for light, easily digestible foods. Chest congestion or a mild cough may appear; stay warm and hydrated.",
+          "positive": "Focus on digestive health with warm, nourishing meals. A bowl of soup or stew will be comforting and healing.",
+          "negative": "Stress eating could upset your stomach. Choose light, easily digestible foods today.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A family member may offer financial assistance or a gift. It's a good day to plan a budget for a future family event. Your intuition about a purchase will be accurate.",
-          "negative": "Emotional spending could deplete your savings. Avoid shopping when feeling vulnerable. Be cautious of investment advice from well‑meaning but inexperienced relatives.",
+          "positive": "A family member may offer financial assistance or a thoughtful gift. Your savings provide a strong sense of security.",
+          "negative": "Emotional spending is a risk. Avoid shopping when feeling vulnerable or upset.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your bond with your mother or a maternal figure deepens. A heartfelt conversation will bring emotional release and clarity. You may feel inspired to decorate or improve your home.",
-          "negative": "Overprotectiveness of children or younger siblings may stifle their growth. Allow them to learn from their own experiences. A spouse may feel neglected if your focus is entirely on the children.",
+          "positive": "Your bond with your mother or maternal figure deepens. A heartfelt conversation will bring emotional healing.",
+          "negative": "Overprotectiveness may smother your children. Allow them to learn from their own experiences.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer milk and rice to the Moon on Monday evening. Wear a pearl set in silver to calm turbulent emotions. Light a camphor lamp in your pooja room at dusk.",
-          "negative": "If emotional turbulence continues, an astrologer can analyse your nakshatra and prescribe a Moon‑pacifying ritual and mantra.",
+          "positive": "Offer milk and rice to the Moon on Monday evening. Wear a pearl set in silver to calm your emotions.",
+          "negative": "If emotional turbulence continues, an astrologer can prescribe a Moon‑pacifying ritual.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -223,50 +223,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Today you are the star of the classroom. Your confidence inspires others, and your presentation skills will win applause. A leadership role in a group project suits you perfectly.",
-          "negative": "Pride may prevent you from asking questions. Remember that even brilliant minds seek help. Dominating discussions could silence quieter peers.",
+          "positive": "Your natural leadership shines. You'll take charge of a group project and guide it to success with confidence and flair.",
+          "negative": "Pride may prevent you from asking for help. Remember that collaboration strengthens results.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Your warmth and generosity make your partner feel like royalty. A grand gesture – perhaps a surprise gift or a planned date – will be deeply appreciated. Singles attract multiple admirers.",
-          "negative": "Ego clashes could spoil an otherwise perfect day. Apologise first, even if you feel you're right. Need for constant attention may exhaust your partner; give them space to shine too.",
+          "positive": "Your warmth and generosity overflow. A grand romantic gesture – like a surprise gift or an elaborate date – will sweep your partner off their feet.",
+          "negative": "Ego clashes over trivial matters could escalate. Apologise first to keep the peace.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "The spotlight is yours. A major presentation or pitch will be a resounding success. Your creative vision will be approved, and you may be entrusted with a high‑visibility project.",
-          "negative": "Arrogance could alienate colleagues. Share credit generously. Avoid making unilateral decisions; consult your team to maintain harmony.",
+          "positive": "You are the centre of attention. A major presentation or pitch will be a resounding success. Your creative vision receives approval.",
+          "negative": "Arrogance can alienate supportive colleagues. Share credit and celebrate the team's success.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your heart and spine are strong. A vigorous cardio workout or a dance class will lift your spirits. Your natural vitality is infectious.",
-          "negative": "Overexertion may lead to fatigue or a racing heartbeat. Know your limits. High blood pressure could be a concern if stress isn't managed; monitor it.",
+          "positive": "Your heart and spine are strong. A vigorous cardio workout or a passionate dance session will boost your vitality.",
+          "negative": "Overexertion could lead to fatigue or a racing heartbeat. Know your limits and rest when needed.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A bonus or performance‑based reward may come your way. Treat yourself, but also save a portion. Your bold investment style could yield quick returns if researched well.",
-          "negative": "Extravagant spending on status symbols might drain your account. Distinguish between 'need' and 'want'. Speculative gambling should be avoided.",
+          "positive": "A performance bonus or reward is on the way. Treat yourself but also save a portion for the future.",
+          "negative": "Lavish spending to impress others could drain your account. Distinguish between needs and wants.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "You are the heart of your family today. Your warmth and encouragement lift everyone's spirits. A celebration or a special meal in your honour may be planned.",
-          "negative": "Your authoritative tone may intimidate younger relatives. Soften your approach with humour. A power struggle with an elder could create tension; be respectful.",
+          "positive": "You are the heart of the household. Your encouragement lifts everyone's spirits. A celebration may be planned in your honour.",
+          "negative": "An authoritative tone might intimidate younger relatives. Lead with warmth and humour.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer water to the Sun at sunrise and recite the Aditya Hridayam Stotra. Wear a ruby or garnet to enhance your solar energy. Donate wheat or jaggery on Sunday.",
-          "negative": "If recognition is delayed despite your efforts, a birth‑chart analysis can reveal the planetary factors and suggest a Sun‑strengthening ritual.",
+          "positive": "Offer water to the Sun at sunrise and recite the Aditya Hridayam Stotra. Wear a ruby or garnet to enhance your solar energy.",
+          "negative": "If recognition is delayed, a birth‑chart analysis can reveal the planetary factors and suggest a Sun‑strengthening ritual.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -277,50 +277,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your attention to detail catches an error that others missed, saving your team from a major mistake. Your analytical mind is a gift – use it to serve others.",
-          "negative": "Over‑criticism of your own work can lead to paralysis. Accept that perfection is a journey, not a destination. Avoid comparing your progress to others'.",
+          "positive": "Your attention to detail catches errors that others miss. Your thoroughness will be praised by teachers and peers alike.",
+          "negative": "Perfectionism may cause you to miss deadlines. Strive for excellence, not flawlessness.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Quiet acts of service speak volumes. Doing your partner's chores or organising their workspace will touch their heart. A clutter‑free environment enhances romance.",
-          "negative": "Your critical nature may wound your loved one. Offer three compliments for every criticism. Over‑analysing the relationship could create problems that don't exist.",
+          "positive": "Small acts of service speak volumes. Helping your partner with a task or organising their space will be deeply appreciated.",
+          "negative": "Your critical nature may wound your loved one. Offer more compliments than criticisms today.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your meticulous work earns you a reputation for reliability. You may be asked to train a new employee or oversee a quality‑control process. Your organisational skills shine.",
-          "negative": "Don't get lost in minor details and miss the strategic overview. Delegate tasks that others can handle. Worrying about every small mistake can sap your energy.",
+          "positive": "Your meticulous work earns you a reputation for reliability. You may be entrusted with an important quality‑control task.",
+          "negative": "Avoid getting lost in details and missing the strategic overview. Delegate when possible.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your digestive system works best with simple, clean foods. A detox day or a light fasting will be very beneficial. Your skin looks clear and healthy.",
-          "negative": "Anxiety may cause digestive discomfort or skin breakouts. Practise relaxation techniques. Over‑thinking at night can disrupt sleep; write down your worries before bed.",
+          "positive": "Your digestive system thrives on clean, simple foods. A light detox or fasting day will be highly beneficial.",
+          "negative": "Worry and anxiety may disrupt your sleep. Write down your thoughts before bed to clear your mind.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "Your budgeting skills help you save a significant amount this month. A detailed review of your expenses will reveal unnecessary subscriptions you can cancel.",
-          "negative": "Penny‑pinching may lead to missed opportunities for growth. Sometimes you need to invest in yourself. Avoid lending money to financially irresponsible people.",
+          "positive": "Your careful budgeting identifies significant savings. Cancelling unused subscriptions and negotiating bills frees up extra cash.",
+          "negative": "Penny‑pinching on essential items could cause bigger issues later. Spend wisely on quality when it matters.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your practical help is deeply valued. Assisting an elder with technology or medical appointments will earn their heartfelt blessings. A health concern in the family may see improvement.",
-          "negative": "Your critical comments may hurt a child's self‑esteem. Praise more than you correct. A spouse may feel you prioritise household chores over quality time together.",
+          "positive": "Your practical help is deeply valued. Assisting an elder with technology or a medical appointment earns heartfelt blessings.",
+          "negative": "Your critical remarks may hurt a child's self‑esteem. Praise more than you correct today.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Feed green grass or spinach to cows on Wednesday. Wear an emerald or peridot to enhance Mercury's positive influence. Chant 'Om Budhaya Namaha' 108 times.",
-          "negative": "If health or work stress persists, an astrologer can recommend a Mercury‑pacifying puja and a specific mantra based on your chart.",
+          "positive": "Feed green grass or spinach to cows on Wednesday. Wear an emerald or peridot to enhance Mercury's positive influence.",
+          "negative": "If health or work stress persists, an astrologer can recommend a Mercury‑pacifying puja and mantra.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -331,49 +331,49 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your sense of fairness and balance makes you an excellent debater. You'll articulate all sides of an argument convincingly. A teacher may praise your diplomatic skills.",
-          "negative": "Indecision about which course to take or which topic to research could stall your progress. Set a deadline and commit. Over‑reliance on others' opinions may weaken your own voice.",
+          "positive": "Your balanced and fair approach makes you an excellent mediator in group projects. Teachers will appreciate your diplomacy.",
+          "negative": "Indecision could stall your progress. Trust your gut and make a choice, even if it's not perfect.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Harmony and beauty surround your relationship. An art gallery visit, a concert, or simply dressing up for each other will rekindle the romance. Singles may meet someone through a cultural event.",
-          "negative": "People‑pleasing may lead you to neglect your own needs. Speak your truth gently. Comparing your relationship to others' highlight reels can breed dissatisfaction.",
+          "positive": "Harmony and beauty fill your relationship. An art gallery visit or a concert will be a magical experience together.",
+          "negative": "People‑pleasing may cause you to neglect your own needs. Speak your truth with gentle honesty.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your diplomacy resolves a tense situation at work. You may be asked to mediate a conflict between colleagues or departments. A partnership or collaboration will yield excellent results.",
-          "negative": "Avoid taking sides in office politics. Your desire for harmony may be exploited. Be assertive when your own interests are at stake.",
+          "positive": "Your diplomacy resolves a tense workplace conflict. You may be asked to mediate between colleagues or departments.",
+          "negative": "Avoid getting drawn into office politics. Stay neutral and focused on solutions.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your skin and kidneys are in focus. Drinking plenty of water and eating hydrating fruits will make you glow. A gentle detox will be beneficial.",
-          "negative": "Lower back pain may act up if you sit for prolonged periods. Take regular standing breaks. Indulgence in sweets could affect your blood sugar; moderation is key.",
+          "positive": "Your skin and kidneys benefit from hydration. Drink plenty of water and enjoy water‑rich fruits today.",
+          "negative": "Lower back pain may flare up from prolonged sitting. Take standing and stretching breaks regularly.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A joint venture or a partnership may bring financial rewards. Your fairness in dividing profits will strengthen the collaboration. Consider investing in art or beauty‑related industries.",
-          "negative": "Luxury spending can be tempting. Stick to your budget. Avoid co‑signing a loan unless you're fully prepared to take on the debt.",
+          "positive": "A joint venture or creative collaboration brings financial rewards. Your fairness ensures a mutually beneficial deal.",
+          "negative": "Luxury spending can be tempting. Create a budget and stick to it to avoid future regret.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "You are the peacemaker at home. A long‑standing disagreement between relatives may finally be resolved through your mediation. A family celebration is likely.",
-          "negative": "Your desire to keep everyone happy may exhaust you. Take time for self‑care. A partner may feel you prioritise others over them; reassure with quality time.",
+          "positive": "You are the peacemaker at home. A family dispute may finally see resolution through your calm and balanced mediation.",
+          "negative": "Your desire to keep everyone happy may leave you exhausted. Prioritise your own self‑care.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Light a sandalwood incense in the evening and meditate on Lord Krishna. Wear a diamond or white sapphire to strengthen Venus. Offer white sweets to young girls on Friday.",
+          "positive": "Light sandalwood incense in the evening and meditate on Lord Krishna. Wear a diamond or white sapphire to strengthen Venus.",
           "negative": "If relationships remain strained, an astrologer can perform a compatibility analysis and suggest a Venus‑pacifying puja.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
@@ -385,50 +385,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your investigative nature thrives today. Researching a hidden or complex topic will uncover valuable insights. You may solve a mystery that has puzzled your peers.",
-          "negative": "Obsession with one subject could narrow your perspective. Take breaks to refresh your mind. Suspicion of classmates' motives may create unnecessary tension.",
+          "positive": "Your intense focus and determination help you conquer difficult material. Research yields profound insights that others may miss.",
+          "negative": "Obsession with one topic could cause you to neglect other important areas. Seek balance.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Intimacy deepens to new levels. A soul‑baring conversation with your partner will forge an unbreakable bond. Your loyalty and protectiveness make them feel safe.",
-          "negative": "Jealousy can become consuming if not checked. Trust is the foundation; don't let suspicion erode it. Manipulative behaviour, even unintentional, must be avoided.",
+          "positive": "Passion runs deeper than ever. A vulnerable and honest conversation with your partner will create an unbreakable emotional bond.",
+          "negative": "Jealousy can quickly spiral out of control. Trust is the only antidote – nurture it daily.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your determination to uncover the truth serves you well. You may expose a problem that others were ignoring, earning respect. Your ability to handle crises is unmatched.",
-          "negative": "Power struggles with a rival could drain your energy. Choose your battles strategically. Avoid being overly secretive; share information with your trusted team.",
+          "positive": "Your ability to navigate crises earns you respect. A rival's misstep may become your strategic opportunity.",
+          "negative": "Power struggles can drain your energy. Focus on your own path rather than competing with others.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your regenerative abilities are heightened. Any healing process – physical or emotional – will be accelerated. Your reproductive health is in focus; take care of it.",
-          "negative": "Mental stress could manifest as headaches or digestive issues. Meditation is essential today. Avoid excessive caffeine or energy drinks; they'll increase anxiety.",
+          "positive": "Your regenerative abilities are strong. Any healing process – physical or emotional – will accelerate today.",
+          "negative": "Mental stress could manifest as physical pain. Prioritise meditation and relaxation techniques.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A hidden asset or unclaimed money may surface. Investigate old accounts or forgotten investments. Your intuition about a joint financial venture will be accurate.",
-          "negative": "Secret spending could be revealed, causing friction with your partner. Be transparent. Avoid risky investments based on insider tips; they often backfire.",
+          "positive": "A hidden asset or unclaimed money may surface. Trust your intuition about a joint financial venture – it's likely correct.",
+          "negative": "Secret spending could be exposed. Maintain transparency with your partner about all financial matters.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your unwavering loyalty protects your family. A relative may confide a deep secret, trusting you completely. Your intensity can be channelled into fiercely defending a loved one.",
-          "negative": "Suspicion could poison a close relationship. Verify facts before making accusations. Emotional intensity may overwhelm younger family members; soften your presence.",
+          "positive": "Your fierce loyalty protects your loved ones. A relative may confide a life‑changing secret, trusting only you.",
+          "negative": "Suspicion could damage a close family bond. Verify facts before jumping to conclusions.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer red flowers and sindoor to Lord Hanuman on Tuesday. Wear a red coral set in silver. Recite the Mangal Stotra 11 times for courage and protection.",
-          "negative": "If emotional turmoil persists, an astrologer can identify malefic nakshatra influences and recommend a specific homa for relief.",
+          "positive": "Offer red flowers and sindoor to Lord Hanuman on Tuesday. Wear a red coral set in silver to balance Mars. Recite the Mangal Stotra.",
+          "negative": "If emotional turmoil persists, an astrologer can identify malefic nakshatra influences and recommend a specific homa.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -439,50 +439,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your thirst for knowledge leads you to a philosophical or spiritual text that changes your worldview. Higher education or travel for study is highly favoured.",
-          "negative": "Restlessness may cause you to abandon a course midway. Commit to one path. Bluntness in academic discussions could offend sensitive peers; temper honesty with tact.",
+          "positive": "Your thirst for knowledge leads you to a life‑changing book or lecture. Higher education in philosophy, law, or spirituality is favoured.",
+          "negative": "Restlessness may cause you to abandon a course midway. Commit to seeing things through to the end.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Adventure is the key to your heart. Plan an outdoor activity or a trip with your partner – the shared experience will deepen your bond. Singles may find love while travelling.",
-          "negative": "Your need for freedom may feel like commitment‑phobia to your partner. Reassure them of your dedication. Blunt remarks can wound; wrap truth in kindness.",
+          "positive": "Adventure is the key to your heart. Plan an exciting trip or outdoor activity with your partner to rekindle passion.",
+          "negative": "Your need for freedom may feel like commitment‑phobia to your partner. Reassure them of your dedication.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "An opportunity for travel or international work may arise. Your optimistic outlook will inspire your team during a challenging project. Publishing or teaching roles are favoured.",
-          "negative": "Overpromising could damage your reputation. Be realistic about what you can deliver. A blunt email could offend a client; draft carefully.",
+          "positive": "An opportunity for international work or travel arises. Your optimistic outlook will inspire your entire team.",
+          "negative": "Overpromising could damage your credibility. Be realistic about what you can deliver.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your liver and hips are strong. Outdoor activities like hiking or cycling will be invigorating. Your body craves movement – honour that need.",
-          "negative": "Overindulgence in rich food or alcohol could strain your liver. Moderation is wise. Hip or thigh injuries from overexertion are possible; warm up properly.",
+          "positive": "Your liver and hips are strong. Outdoor activities like hiking, cycling, or horse riding will be deeply satisfying.",
+          "negative": "Overindulgence in rich food or alcohol could tax your liver. Practice moderation.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A lucky break may come through a foreign connection or travel. Your generous nature attracts abundance. Consider donating to a cause that aligns with your values.",
-          "negative": "Gambling or speculative bets could lead to loss. Keep risk minimal. Avoid lending to friends if it could jeopardise the relationship.",
+          "positive": "A lucky break may come through foreign connections or travel. Consider sharing your good fortune with a charitable cause.",
+          "negative": "Gambling or speculative bets could backfire. Keep your risk exposure minimal.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your cheerful presence uplifts the entire household. A family trip or picnic will be a huge success. You may mentor a younger relative in academic or career matters.",
-          "negative": "You may come across as preachy or moralistic. Listen without judging. A blunt remark could hurt an elder's sentiments; choose words with care.",
+          "positive": "Your cheerful energy uplifts the entire household. Plan a family outing or picnic – it will be a roaring success.",
+          "negative": "You may sound preachy or moralistic. Listen to others' viewpoints without judgment.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Recite the Vishnu Sahasranama on Thursday. Wear a yellow sapphire (Pukhraj) for Jupiter's blessings. Donate bananas and yellow clothes to a temple.",
-          "negative": "If luck seems elusive, an astrologer can analyse your Jupiter transit and suggest a specific ritual to strengthen its positive influence.",
+          "positive": "Recite the Vishnu Sahasranama on Thursday. Wear a yellow sapphire (Pukhraj) for Jupiter's blessings. Donate bananas to a temple.",
+          "negative": "If luck seems elusive, an astrologer can analyse your Jupiter transit and prescribe a specific ritual.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -493,50 +493,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your discipline and hard work are unmatched. A structured study plan will help you ace an upcoming certification or exam. Your patience with complex subjects is admirable.",
-          "negative": "Rigidity could limit your creative thinking. Allow yourself to explore unconventional ideas. Overwork may lead to burnout; schedule regular breaks.",
+          "positive": "Your discipline and strategic planning are your superpowers. A structured approach will help you ace an important exam or certification.",
+          "negative": "Rigidity could limit your creative potential. Allow yourself to think outside the box occasionally.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Your loyalty and commitment are your love language. A practical gesture – like handling a difficult task for your partner – will mean more than any expensive gift.",
-          "negative": "Workaholic tendencies may leave your partner feeling neglected. Carve out dedicated couple time. Emotional reserve might be mistaken for coldness; express your feelings verbally.",
+          "positive": "Your steadfast loyalty and commitment are your most attractive qualities. A practical gesture of support will mean more to your partner than any gift.",
+          "negative": "Workaholic tendencies may leave your partner feeling neglected. Schedule dedicated quality time together.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your strategic thinking impresses senior management. A long‑term project you've been nurturing finally gains approval. A promotion or leadership role is on the horizon.",
-          "negative": "Don't trample others in your climb to the top. Maintain integrity. Office politics could distract you; stay focused on your goals and avoid gossip.",
+          "positive": "Your long‑term vision and strategic execution are recognised by senior leadership. A promotion or significant new responsibility is on the horizon.",
+          "negative": "Don't compromise your integrity for quick advancement. True success is built on a foundation of ethics.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your bones and joints are strong. Weight‑bearing exercises or strength training will be particularly effective. Your disciplined lifestyle pays off in excellent health.",
-          "negative": "Knee or joint pain may act up if you overexert. Take rest days seriously. Stress could affect your blood pressure; monitor it and practise relaxation.",
+          "positive": "Your bones and joints are strong. Weight‑bearing exercises and strength training will be highly effective today.",
+          "negative": "Knee or joint pain may flare up from overuse. Prioritise rest and recovery as much as activity.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A long‑term investment matures favourably. It's an excellent day to plan for retirement or your child's education. Your financial discipline is about to bear significant fruit.",
-          "negative": "Don't be overly frugal – spend on necessary comforts and experiences that enrich life. Avoid lending large sums without proper documentation.",
+          "positive": "A long‑term investment reaches maturity and pays out handsomely. It's an ideal day for retirement or legacy planning.",
+          "negative": "Excessive frugality can rob life of joy. Spend on meaningful experiences with your loved ones.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your role as the responsible anchor of the family is deeply appreciated. An elder may seek your advice on an important financial or legal matter. Your practical support provides security.",
-          "negative": "Your serious demeanour may intimidate children. Make time for playful interaction. A spouse may feel you prioritise work over family; reassure them with presence.",
+          "positive": "You are the unshakeable pillar of your household. An elder seeks your wise counsel on an important family matter.",
+          "negative": "Your serious demeanour may intimidate young children. Make time for playful, light‑hearted interactions.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer black sesame seeds and mustard oil to Lord Shani on Saturday. Wear a blue sapphire (Neelam) only after proper astrological consultation. Recite the Shani Stotra daily.",
-          "negative": "If professional hurdles seem insurmountable, a Shani‑pacifying yajna can be performed under the guidance of a qualified astrologer.",
+          "positive": "Offer black sesame seeds and mustard oil to Lord Shani on Saturday. Wear a blue sapphire only after proper astrological consultation.",
+          "negative": "If career obstacles seem insurmountable, a Shani‑pacifying yajna can be performed under expert guidance.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -547,50 +547,50 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your innovative thinking breaks conventional boundaries. A science or technology project will benefit from your unique perspective. You may invent a new method that impresses your peers.",
-          "negative": "Detachment could make you seem uninterested in collaborative work. Engage actively. Your unconventional ideas may meet resistance; explain them patiently and clearly.",
+          "positive": "Your innovative and unconventional thinking leads to a breakthrough idea. A science or technology project will be particularly successful.",
+          "negative": "Detachment may make you seem aloof to classmates. Engage more actively in collaborative discussions.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Friendship is the bedrock of your romance. An intellectual conversation or a shared social cause will bring you closer. Singles may find a partner through a community group.",
-          "negative": "Emotional aloofness may be misinterpreted as coldness. Show warmth through thoughtful actions. A need for personal space could clash with your partner's desire for closeness.",
+          "positive": "A meeting of minds creates a powerful romantic connection. An intellectual conversation or shared social cause brings you closer to your partner.",
+          "negative": "Emotional aloofness could be misinterpreted as coldness. Show your affection through small, thoughtful actions.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your forward‑thinking ideas are exactly what your company needs. A tech‑related innovation or a social media strategy you propose will be adopted. Networking online brings opportunities.",
-          "negative": "Rebellion against authority without cause may harm your reputation. Choose your battles wisely. Your detachment might be seen as lack of commitment; show enthusiasm.",
+          "positive": "Your avant‑garde ideas are exactly what the market needs. A tech innovation or social media strategy you propose will be fast‑tracked for implementation.",
+          "negative": "Rebellion against authority without a clear purpose can backfire. Choose your battles with strategic wisdom.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your circulatory system is in great shape. Aerobic exercises, swimming, or a brisk walk will be refreshing. Your calves and ankles feel strong.",
-          "negative": "Ankles may be prone to sprains; wear supportive shoes. Mental restlessness could lead to insomnia; avoid screens at least an hour before bed.",
+          "positive": "Your circulatory system is in excellent shape. Aerobic exercise, swimming, or a brisk nature walk will be refreshing and restorative.",
+          "negative": "Ankles are vulnerable to minor sprains. Wear supportive footwear and be mindful of uneven surfaces.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A tech‑related investment or a cryptocurrency trade (if you're experienced) may bring profits. Research thoroughly before committing. A friend may introduce a lucrative side gig.",
-          "negative": "Unconventional spending on gadgets or software could drain your budget. Prioritise needs. Avoid lending to casual acquaintances; they may default.",
+          "positive": "A tech‑related investment or a carefully researched cryptocurrency trade may yield exciting returns. A friend may introduce a profitable side hustle.",
+          "negative": "Overspending on the latest gadgets could strain your finances. Prioritise genuine needs over fleeting wants.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your progressive ideas inspire younger relatives. Mentoring a niece or nephew in technology or social issues will be rewarding. A family discussion about future plans is productive.",
-          "negative": "Your need for independence may clash with family traditions. Find a compromise. You may come across as emotionally distant during a family event; make an effort to be present.",
+          "positive": "Your progressive ideas inspire the younger generation. Mentoring a niece or nephew in technology or social justice will be deeply fulfilling.",
+          "negative": "Your need for independence may clash with traditional family values. Seek a respectful middle ground.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Donate black clothes or blankets to the poor on Saturday. Wear an amethyst or blue sapphire (after consultation) for Saturn's wisdom. Recite the Mahamrityunjaya Mantra 11 times.",
-          "negative": "If you feel directionless, a birth‑chart analysis can reveal the transits affecting your sign and prescribe specific mantras for clarity.",
+          "positive": "Donate black clothes or blankets to those in need on Saturday. Wear an amethyst or blue sapphire for Saturn's clarifying wisdom. Recite the Mahamrityunjaya Mantra.",
+          "negative": "If you feel chronically directionless, an astrologer can analyse your birth chart and prescribe specific mantras for clarity.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
@@ -601,57 +601,56 @@
       "sections": [
         {
           "aspect": "Education",
-          "positive": "Your creativity and imagination are your superpowers. Artistic projects, music, or creative writing will flow effortlessly. You may receive recognition for a piece that deeply moves others.",
-          "negative": "Daydreaming could cause you to miss important deadlines. Keep a planner. Escapism through entertainment may eat into your study time; set limits.",
+          "positive": "Your creativity and imagination know no bounds. An artistic project, music composition, or creative writing piece will touch souls and earn high praise.",
+          "negative": "Daydreaming could cause you to miss critical deadlines. Stay grounded with a practical schedule.",
           "image": "/assets/images/aspect-education.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Love",
-          "positive": "Romance feels like a spiritual experience. A sunset walk, a shared meditation, or a heartfelt poem will create a soul connection. Your empathy allows you to truly understand your partner.",
-          "negative": "Illusions or unrealistic expectations could lead to heartbreak. See your relationship clearly. Sacrificing too much of yourself may breed resentment later.",
+          "positive": "Romance feels like a divine, spiritual experience. A sunset walk, shared meditation, or a heartfelt poem will create a profound soul connection with your partner.",
+          "negative": "Illusions or unrealistic expectations may lead to heartbreak. See your partner as they truly are, not as your fantasy.",
           "image": "/assets/images/aspect-love.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Career",
-          "positive": "Your compassion makes you a natural healer or counsellor. A role in the arts, therapy, or spiritual guidance is favoured. A colleague may seek your emotional support, deepening your professional bond.",
-          "negative": "Escapism through daydreaming or social media can harm productivity. Set timers for focused work. Avoid absorbing others' stress as your own.",
+          "positive": "Your compassion and creativity are your greatest professional assets. A role in healing, the arts, or spiritual guidance is strongly favoured today.",
+          "negative": "Escapism through daydreaming or social media can sabotage your productivity. Use timers to stay on track.",
           "image": "/assets/images/aspect-career.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Health",
-          "positive": "Your intuition about your body is heightened. Listen to its needs – perhaps more rest, hydration, or a particular nutrient. Your feet and lymphatic system are in focus.",
-          "negative": "Feet may feel tired or swollen. Soak them in warm salt water. Emotional overwhelm could lead to fatigue; carve out time for solitude and recharge.",
+          "positive": "Your intuition about your body is powerful. Honour its needs – perhaps more rest, hydration, or a specific nutrient. Your feet and lymphatic system need gentle care.",
+          "negative": "Feet may feel unusually tired or swollen. A warm salt soak will work wonders. Emotional overwhelm could lead to deep fatigue.",
           "image": "/assets/images/aspect-health.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Finance",
-          "positive": "A creative hobby could turn into a steady income stream. Explore your artistic talents. Your intuition may guide you to a good deal; trust it but also do your research.",
-          "negative": "Beware of scams or offers that seem too good to be true. If it feels off, walk away. Avoid lending money based purely on emotional appeal; you may not get it back.",
+          "positive": "A creative hobby could unexpectedly blossom into a lucrative income stream. Your artistic talents have real market value. Trust your intuition, but always verify facts.",
+          "negative": "Beware of emotional scams or offers that seem spiritually 'too good to be true'. If it feels off, walk away immediately.",
           "image": "/assets/images/aspect-finance.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Family",
-          "positive": "Your empathetic presence heals family wounds. A heart‑to‑heart with a parent or sibling will bring long‑awaited closure. Your peaceful energy calms a chaotic household.",
-          "negative": "You may absorb others' negative emotions, leaving you drained. Set energetic boundaries. Avoid becoming the family's sole rescuer; encourage self‑reliance in loved ones.",
+          "positive": "Your empathic presence brings profound healing to old family wounds. A tearful, honest conversation with a parent or sibling finally brings long‑awaited peace.",
+          "negative": "You may absorb the entire family's emotional toxicity, leaving you drained. Set strong, loving energetic boundaries.",
           "image": "/assets/images/aspect-family.webp",
           "cta": "/contact"
         },
         {
           "aspect": "Remedy",
-          "positive": "Offer milk and honey to Lord Vishnu on Thursday. Wear a yellow sapphire or amethyst for spiritual clarity. Meditate near water for emotional cleansing.",
-          "negative": "If emotional overwhelm persists, an astrologer can prescribe a moon‑pacifying ritual and a personalised mantra based on your nakshatra.",
+          "positive": "Offer milk and honey to Lord Vishnu on Thursday. Wear a yellow sapphire or a calming amethyst. Meditate beside a natural water source for deep spiritual cleansing.",
+          "negative": "If emotional and spiritual overwhelm persists, an astrologer can prescribe a Moon‑pacifying ritual and a personalised mantra based on your nakshatra.",
           "image": "/assets/images/aspect-remedy.webp",
           "cta": "/contact"
         }
       ]
     }
   },
-  "lucky_color": "Red",
-  "lucky_number": 9,
-  "source": "predefined"
+  "lucky_color": "Gold",
+  "lucky_number": 1
 }
