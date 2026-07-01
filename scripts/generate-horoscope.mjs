@@ -5,27 +5,50 @@ import Groq from 'groq-sdk';
 import fs from 'fs';
 import path from 'path';
 
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
-if (!GROQ_API_KEY) {
-  console.error('❌ GROQ_API_KEY not set');
-  process.exit(1);
-}
-const groq = new Groq({ apiKey: GROQ_API_KEY });
+// ─── API Keys ─────────────────────────────────────────────
+const GROQ_KEY = process.env.GROQ_API_KEY || '';
+const ZHIPU_KEY = process.env.ZHIPU_API_KEY || '';
 
-// Reliable model chain – gemma2‑9b‑it is free, fast, and stable
-const MODEL_CHAIN = [
-  'gemma2-9b-it',               // primary – fast & free
-  'llama-3.3-70b-versatile',    // backup #1
-  'meta-llama/llama-4-scout-17b-16e-instruct'  // backup #2
+// ─── Groq Client ──────────────────────────────────────────
+let groq = null;
+if (GROQ_KEY) groq = new Groq({ apiKey: GROQ_KEY });
+
+// ─── Zhipu API ────────────────────────────────────────────
+async function callZhipu(messages) {
+  if (!ZHIPU_KEY) throw new Error('No Zhipu API key');
+  const res = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ZHIPU_KEY}` },
+    body: JSON.stringify({
+      model: 'glm-4-flash',
+      messages,
+      temperature: 0.9,
+      max_tokens: 250,
+    }),
+  });
+  if (!res.ok) throw new Error(`Zhipu HTTP ${res.status}`);
+  const data = await res.json();
+  return data.choices[0].message.content.trim();
+}
+
+// ─── Models chain ─────────────────────────────────────────
+const MODELS = [
+  { name: 'groq-gemma2-9b-it', fn: async (msgs) => {
+    if (!groq) throw new Error('No Groq client');
+    const res = await groq.chat.completions.create({ messages: msgs, model: 'gemma2-9b-it', temperature: 0.9, max_tokens: 250 });
+    return res.choices[0].message.content.trim();
+  }},
+  { name: 'groq-llama3.3-70b', fn: async (msgs) => {
+    if (!groq) throw new Error('No Groq client');
+    const res = await groq.chat.completions.create({ messages: msgs, model: 'llama-3.3-70b-versatile', temperature: 0.9, max_tokens: 250 });
+    return res.choices[0].message.content.trim();
+  }},
+  { name: 'zhipu-glm4-flash', fn: callZhipu },
 ];
 
+// ─── Astronomy helpers ────────────────────────────────────
 const SIGNS = ['aries','taurus','gemini','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces'];
-
-// True sidereal moon sign
-function lahiriAyanamsa(jd) {
-  const t = (jd - 2451545.0) / 36525;
-  return (23.85 + 0.013 * t) * Math.PI / 180;
-}
+function lahiriAyanamsa(jd) { const t = (jd - 2451545.0) / 36525; return (23.85 + 0.013 * t) * Math.PI / 180; }
 function getMoonSign(date) {
   const jd = julian.CalendarGregorianToJD(date.getFullYear(), date.getMonth()+1, date.getDate(), 5,30,0);
   const moon = moonposition.position(jd);
@@ -34,40 +57,27 @@ function getMoonSign(date) {
   return SIGNS[Math.floor((sidereal * 180 / Math.PI) / 30) % 12];
 }
 
-// Backoff delays (exponential)
-const BACKOFF = [5000, 10000, 20000];
-
+// ─── Generate one sign ────────────────────────────────────
 async function generateOne(sign, moon) {
-  const system = `You are a Vedic astrologer and devotee of Neem Karori Baba. The Moon is in ${moon} today. Write a horoscope for Moon sign ${sign}. Under 150 words, inspiring, include a remedy. Plain text.`;
+  const messages = [
+    { role: 'system', content: `You are a Vedic astrologer and devotee of Neem Karori Baba. The Moon is in ${moon} today. Write a daily horoscope for Moon sign ${sign}. Under 150 words, inspiring, include a simple remedy. Plain text.` },
+    { role: 'user', content: `Horoscope for ${sign}` },
+  ];
 
-  for (const model of MODEL_CHAIN) {
-    for (let attempt = 0; attempt < BACKOFF.length; attempt++) {
-      try {
-        const res = await groq.chat.completions.create({
-          messages: [{ role: 'system', content: system }, { role: 'user', content: `Horoscope for ${sign}` }],
-          model,
-          temperature: 0.9,
-          max_tokens: 250,
-        });
-        const text = res.choices[0]?.message?.content?.trim();
-        if (text) return text;
-      } catch (e) {
-        const code = e?.status || e?.error?.code || '';
-        // Permanent error – skip model
-        if (code === 400 || code === 404 || code === 'model_decommissioned') break;
-        // Transient – backoff
-        if (attempt < BACKOFF.length - 1) {
-          console.warn(`   ⚠️ ${model} attempt ${attempt+1} failed, retrying in ${BACKOFF[attempt]/1000}s…`);
-          await new Promise(r => setTimeout(r, BACKOFF[attempt]));
-        }
-      }
+  for (const model of MODELS) {
+    try {
+      const text = await model.fn(messages);
+      if (text) return text;
+    } catch (e) {
+      console.warn(`   ⚠️ ${model.name} failed: ${e.message}`);
     }
-    console.warn(`   ⚠️ Model ${model} exhausted.`);
   }
+
   // Ultimate fallback
   return `Today, dear ${sign}, remember Babaji's words: "Love everyone, serve everyone, remember God." Chant Ram Ram and be at peace.`;
 }
 
+// ─── Main ─────────────────────────────────────────────────
 (async () => {
   const today = new Date();
   const ist = new Date(today.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
@@ -79,8 +89,8 @@ async function generateOne(sign, moon) {
     console.log(`📜 Generating ${sign}…`);
     horoscopes[sign] = await generateOne(sign, moon);
     if (sign !== SIGNS[SIGNS.length-1]) {
-      console.log('   ⏳ 12s gap…');
-      await new Promise(r => setTimeout(r, 12000));
+      console.log('   ⏳ 15s gap…');
+      await new Promise(r => setTimeout(r, 15000));
     }
   }
 
