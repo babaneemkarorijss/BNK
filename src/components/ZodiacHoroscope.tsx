@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import useSWR from 'swr';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -47,7 +47,7 @@ function getDayIndex(): number {
   const start = new Date(now.getFullYear(), 0, 0);
   const diff = now.getTime() - start.getTime();
   const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-  return dayOfYear % 3;  // 0, 1, 2
+  return dayOfYear % 3;
 }
 
 export default function ZodiacHoroscope({ sign }: { sign: string }) {
@@ -58,45 +58,51 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
 
   const [sections, setSections] = useState<Section[]>([]);
   const [aiMessage, setAiMessage] = useState<string>('');
+  const [fallbackLoaded, setFallbackLoaded] = useState(false);
 
-  // Load fallback sections whenever data changes or sign changes
-  useEffect(() => {
-    const loadFallback = async () => {
-      const dayIndex = getDayIndex();
-      const fallbackUrl = `/data/fallback/day${dayIndex}.json`;
-      try {
-        const res = await fetch(fallbackUrl);
-        const fallbackData: any = await res.json();
-        const fallbackSign = fallbackData.horoscopes?.[sign];
-        if (fallbackSign && fallbackSign.sections) {
-          setSections(fallbackSign.sections);
-        }
-      } catch (e) {
-        console.warn('Fallback sections not available:', e);
+  // Load fallback sections based on day index
+  const loadFallback = useCallback(async () => {
+    const dayIndex = getDayIndex();
+    const fallbackUrl = `/data/fallback/day${dayIndex}.json`;
+    try {
+      const res = await fetch(fallbackUrl);
+      if (!res.ok) throw new Error('Fallback not available');
+      const fallbackData: any = await res.json();
+      const fallbackSign = fallbackData.horoscopes?.[sign];
+      if (fallbackSign && fallbackSign.sections) {
+        setSections(fallbackSign.sections);
+      } else {
+        console.warn(`Fallback sections not found for ${sign}`);
       }
-    };
+    } catch (e) {
+      console.warn('Error loading fallback sections:', e);
+    }
+    setFallbackLoaded(true);
+  }, [sign]);
 
+  // Always load fallback sections on mount and when sign changes
+  useEffect(() => {
+    loadFallback();
+  }, [loadFallback]);
+
+  // Process AI data if available
+  useEffect(() => {
     if (data && data.horoscopes) {
       const horoscope = data.horoscopes[sign];
       if (typeof horoscope === 'object' && 'sections' in horoscope) {
-        // AI returned full sections – use them
+        // AI returned full sections – override fallback
         setSections(horoscope.sections);
         setAiMessage('');
       } else if (typeof horoscope === 'string') {
-        // AI returned plain text – show as message, load sections from fallback
+        // AI returned plain text – show as message, keep fallback sections
         setAiMessage(horoscope);
-        loadFallback();
       } else {
-        // No data for this sign – load fallback
-        loadFallback();
+        setAiMessage('');
       }
-    } else if (!isLoading) {
-      // No data yet – load fallback
-      loadFallback();
     }
-  }, [data, sign, isLoading]);
+  }, [data, sign]);
 
-  if (isLoading) {
+  if (isLoading && !fallbackLoaded) {
     return (
       <div className="divine-card text-center animate-pulse py-12">
         <p className="text-xl font-serif text-divine-saffron">Chanting Ram Ram…</p>
@@ -104,7 +110,8 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
     );
   }
 
-  if (error && sections.length === 0) {
+  // If no sections loaded yet and no error, show a temporary loading state
+  if (sections.length === 0 && !error && !isLoading) {
     return (
       <div className="divine-card text-center py-12">
         <p className="text-xl font-serif text-sacred-red">Today&apos;s guidance is being prepared.</p>
@@ -141,7 +148,7 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
         </div>
       </div>
 
-      {/* AI Message (if any) */}
+      {/* AI Daily Message (if available) */}
       {aiMessage && (
         <div className="divine-card text-center">
           <p className="text-xl font-serif text-sacred-red italic">{aiMessage}</p>
@@ -156,7 +163,7 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
       </div>
 
       {/* Aspect cards */}
-      {sections.length > 0 && sections.map((section, idx) => (
+      {sections.map((section, idx) => (
         <div
           key={idx}
           className="divine-card overflow-hidden p-0 flex flex-col md:flex-row group hover:shadow-2xl transition-all duration-500"
@@ -194,12 +201,6 @@ export default function ZodiacHoroscope({ sign }: { sign: string }) {
           </div>
         </div>
       ))}
-
-      {sections.length === 0 && !aiMessage && (
-        <div className="divine-card text-center py-12">
-          <p className="text-lg text-gray-500">Aaj ka guidance load ho raha hai… Ram Ram!</p>
-        </div>
-      )}
     </div>
   );
 }
