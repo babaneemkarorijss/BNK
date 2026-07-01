@@ -1,14 +1,12 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
-import ClientHoroscope from '@/app/horoscope/ClientHoroscope';
 import ZodiacGrid from '@/app/horoscope/ZodiacGrid';
 
 export default function HoroscopeWrapper() {
   const searchParams = useSearchParams();
   const sign = searchParams.get('sign');
-
-  if (sign && ['aries','taurus','gemini','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces'].includes(sign.toLowerCase())) {
-    return <ClientHoroscope />;
-  }
+  // If a sign is selected, we redirect to that sign's individual page
+  // which now has the full hardcoded sections.
+  // The HoroscopeWrapper now only shows the ZodiacGrid on the main horoscope page.
   return <ZodiacGrid />;
 }
