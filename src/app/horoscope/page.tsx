@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import RealTimeClock from '@/components/RealTimeClock';
-import HoroscopeWrapper from '@/components/HoroscopeWrapper';
+import ZodiacGrid from '@/components/ZodiacGrid';
 
 export const metadata: Metadata = {
   title: 'Daily Horoscope',
@@ -18,9 +18,7 @@ export default function HoroscopePage() {
         </p>
         <RealTimeClock />
       </section>
-      <Suspense fallback={<div className="text-center text-divine-saffron">Loading zodiac...</div>}>
-        <HoroscopeWrapper />
-      </Suspense>
+      <ZodiacGrid />
     </div>
   );
 }
