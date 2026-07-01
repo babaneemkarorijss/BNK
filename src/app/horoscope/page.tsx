@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import RealTimeClock from '@/components/RealTimeClock';
-import ZodiacGrid from '@/components/ZodiacGrid';
+import ZodiacGrid from '@/app/horoscope/ZodiacGrid';
 
 export const metadata: Metadata = {
   title: 'Daily Horoscope',
