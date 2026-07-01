@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
-  '/assets/images/gallery-1.webp',
-  '/assets/images/gallery-2.webp',
-  '/assets/images/gallery-3.webp',
-  '/assets/images/gallery-4.webp',
+  '/assets/images/leela-removal-of-doubt.webp',
+  '/assets/images/leela-dumb-child.webp',
+  '/assets/images/leela-bullets.webp',
+  '/assets/images/leela-weather.webp',
+  '/assets/images/leela-snakebite.webp',
   '/assets/images/about-kainchi.webp',
   '/assets/images/about-train-miracle.webp',
+  '/assets/images/teachings-hero.webp',
 ];
 
 export default function Slideshow() {
@@ -17,7 +19,7 @@ export default function Slideshow() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 4000);
+    }, 2700); // 2.7 seconds
     return () => clearInterval(timer);
   }, []);
 
