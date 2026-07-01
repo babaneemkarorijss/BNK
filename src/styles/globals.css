@@ -416,3 +416,19 @@ h1,h2,h3,h4 { @apply font-serif; }
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-6px); }
 }
+
+/* ── Animated Golden‑Orange Looping Label ── */
+.logo-animated {
+  background: linear-gradient(135deg, #FFD700, #FF8C00, #FFD700, #FFA500, #FFD700);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldOrangeLoop 4s ease-in-out infinite;
+  text-shadow: none;
+}
+@keyframes goldOrangeLoop {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
