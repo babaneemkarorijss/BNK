@@ -1,2 +1,3 @@
-User-agent: * Allow: /
-Sitemap: https://neemkaroribaba.org/sitemap.xml
+User-agent: *
+Allow: /
+Sitemap: https://babaneemkarori.com/sitemap.xml
