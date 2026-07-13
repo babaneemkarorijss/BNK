@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://neemkaroribaba.org/</loc></url>
-  <url><loc>https://neemkaroribaba.org/about</loc></url>
-  <url><loc>https://neemkaroribaba.org/teachings</loc></url>
-  <url><loc>https://neemkaroribaba.org/stories</loc></url>
-  <url><loc>https://neemkaroribaba.org/horoscope</loc></url>
-  <url><loc>https://neemkaroribaba.org/darshan</loc></url>
-  <url><loc>https://neemkaroribaba.org/bhajans</loc></url>
-  <url><loc>https://neemkaroribaba.org/seva</loc></url>
-  <url><loc>https://neemkaroribaba.org/contact</loc></url>
-  <url><loc>https://neemkaroribaba.org/faq</loc></url>
+  <url><loc>https://www.babaneemkarori.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.babaneemkarori.com/about</loc><priority>0.9</priority></url>
+  <url><loc>https://www.babaneemkarori.com/teachings</loc><priority>0.9</priority></url>
+  <url><loc>https://www.babaneemkarori.com/stories</loc><priority>0.8</priority></url>
+  <url><loc>https://www.babaneemkarori.com/horoscope</loc><priority>0.9</priority></url>
+  <url><loc>https://www.babaneemkarori.com/contact</loc><priority>0.7</priority></url>
 </urlset>
