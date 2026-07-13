@@ -1,11 +1,7 @@
-import type { Metadata } from 'next';
+'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: 'Seva & Donations',
-  description: 'Support Baba Neem Karori Jyotish Seva Sansthan through Seva. Your donation helps us spread Vedic wisdom and serve the needy.',
-};
 
 export default function SevaPage() {
   return (
@@ -77,10 +73,6 @@ export default function SevaPage() {
     </main>
   );
 }
-
-// Client component for the Web3Forms donation form
-'use client';
-import { useState } from 'react';
 
 function DonationForm() {
   const [submitted, setSubmitted] = useState(false);
