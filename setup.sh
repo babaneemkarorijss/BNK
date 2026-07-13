@@ -9,45 +9,40 @@ warn()  { echo -e "${YELLOW}⚠${NC} $1"; }
 err()   { echo -e "${RED}✖${NC} $1"; exit 1; }
 
 # ═══════════════════════════════════════════════════════════════
-# 1. Fix Git ownership (idempotent)
+# 1. Fix Git safe‑directory
 # ═══════════════════════════════════════════════════════════════
 git config --global --add safe.directory "$(pwd)" 2>/dev/null || true
 log "Git safe directory configured."
 
 # ═══════════════════════════════════════════════════════════════
-# 2. Set up credential helper with your PAT token
-#    (If this token has expired, the push will fail and we'll tell you how to fix it.)
+# 2. Remove the old tokenized remote & use normal HTTPS
 # ═══════════════════════════════════════════════════════════════
-PAT="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"
-REMOTE_URL="https://x-access-token:${PAT}@github.com/babaneemkarorijss/BNK.git"
-
-# Only set the remote if it doesn't already contain the token
-if git remote get-url origin 2>/dev/null | grep -q "x-access-token"; then
-    log "Remote already uses PAT token."
-else
-    log "Configuring remote with PAT token..."
-    git remote set-url origin "$REMOTE_URL"
-    log "Remote configured."
-fi
-
-# Also store credentials so 'git push' works without prompting
-git config --global credential.helper store
-echo "https://x-access-token:${PAT}@github.com" > ~/.git-credentials 2>/dev/null || true
-log "Git credentials stored."
+log "Resetting remote to standard HTTPS (no token)..."
+git remote remove origin 2>/dev/null || true
+git remote add origin "https://github.com/babaneemkarorijss/BNK.git"
+log "Remote set to: https://github.com/babaneemkarorijss/BNK.git"
 
 # ═══════════════════════════════════════════════════════════════
-# 3. Clean up any stale rebase/merge
+# 3. Use Git Credential Manager (Windows) so you can log in normally
+# ═══════════════════════════════════════════════════════════════
+git config --global credential.helper manager-core 2>/dev/null || \
+git config --global credential.helper manager 2>/dev/null || \
+git config --global credential.helper store 2>/dev/null || true
+log "Git credential helper set to 'manager' (Windows default)."
+
+# ═══════════════════════════════════════════════════════════════
+# 4. Clean stale rebase/merge
 # ═══════════════════════════════════════════════════════════════
 git rebase --abort 2>/dev/null || true
 git merge --abort 2>/dev/null || true
-log "Git state cleaned (no stale rebase/merge)."
+log "Git state cleaned."
 
 # ═══════════════════════════════════════════════════════════════
-# 4. Stash any uncommitted local changes
+# 5. Stash any uncommitted changes
 # ═══════════════════════════════════════════════════════════════
 STASHED=false
 if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    log "Stashing uncommitted work..."
+    log "Stashing local work..."
     git stash push -u -m "auto-stash-$(date +%s)" || true
     STASHED=true
     log "Work stashed."
@@ -56,22 +51,20 @@ else
 fi
 
 # ═══════════════════════════════════════════════════════════════
-# 5. Pull latest from remote (rebase to keep history linear)
+# 6. Pull latest & rebase local commits
 # ═══════════════════════════════════════════════════════════════
-log "Fetching and rebasing onto origin/master..."
+log "Pulling latest from GitHub..."
 if git pull --rebase origin master; then
     log "Rebase successful."
 else
-    warn "Rebase failed. Aborting and restoring stash..."
+    warn "Rebase failed – aborting and restoring stash..."
     git rebase --abort 2>/dev/null || true
-    if [ "$STASHED" = true ]; then
-        git stash pop 2>/dev/null || true
-    fi
-    err "Could not rebase. Please resolve conflicts manually, then re‑run this script."
+    if [ "$STASHED" = true ]; then git stash pop 2>/dev/null || true; fi
+    err "Please resolve conflicts manually, then re‑run this script."
 fi
 
 # ═══════════════════════════════════════════════════════════════
-# 6. Restore stashed work
+# 7. Restore stashed changes
 # ═══════════════════════════════════════════════════════════════
 if [ "$STASHED" = true ]; then
     log "Restoring stashed work..."
@@ -79,39 +72,38 @@ if [ "$STASHED" = true ]; then
 fi
 
 # ═══════════════════════════════════════════════════════════════
-# 7. Stage all changes and commit (if anything to commit)
+# 8. Commit any new changes
 # ═══════════════════════════════════════════════════════════════
 git add .
 if ! git diff --cached --quiet; then
     log "Committing changes..."
-    git commit -m "🔄 Auto-commit: sync all local changes"
+    git commit -m "🔄 Auto-commit: sync all updates"
 else
-    log "Nothing to commit."
+    log "Nothing new to commit."
 fi
 
 # ═══════════════════════════════════════════════════════════════
-# 8. Push to GitHub
+# 9. Push – if it asks for username/password, enter your GitHub
+#    username and a CLASSIC PAT (or your GitHub password if 2FA is off)
 # ═══════════════════════════════════════════════════════════════
 log "Pushing to origin master..."
 if git push origin master; then
-    log "✅ Push successful! Your changes are live on GitHub."
+    log "✅ Push successful! Vercel will now deploy your site."
 else
-    warn "Push failed (likely the PAT token has expired)."
     echo ""
-    echo "   To fix this:"
-    echo "   1. Go to https://github.com/settings/tokens"
-    echo "   2. Generate a new classic PAT with 'repo' scope"
-    echo "   3. Copy the new token"
-    echo "   4. Run this script again, replacing the PAT variable with your new token"
+    warn "Push failed. Usually this means you need to enter your GitHub credentials."
+    echo "   When prompted, use:"
+    echo "   Username: your GitHub username"
+    echo "   Password: a NEW classic PAT with 'repo' scope"
+    echo "   (Create one at https://github.com/settings/tokens)"
     echo ""
-    echo "   For now, your local changes are safely committed."
+    echo "   After creating the token, run this script again – it will now work."
     exit 1
 fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  🎉 All done – repository is fully synced."
-echo "  Vercel will automatically deploy the latest commit."
-echo "  Visit https://www.babaneemkarori.com to see the updates."
+echo "  🎉 Repository pushed successfully."
+echo "  Your site is live at https://www.babaneemkarori.com"
 echo "  Jai Baba! 🙏"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
